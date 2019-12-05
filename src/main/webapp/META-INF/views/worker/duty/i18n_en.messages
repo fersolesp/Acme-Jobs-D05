@@ -1,0 +1,9 @@
+worker.duty.list.label.title= Title
+worker.duty.list.label.description= Description
+
+worker.duty.form.label.title= Reference:
+worker.duty.form.label.description= Deadline:
+worker.duty.form.label.timeAmount= Time Amount(%):
+
+worker.duty.form.button.return= Return
+worker.duty.list.button.return= Return

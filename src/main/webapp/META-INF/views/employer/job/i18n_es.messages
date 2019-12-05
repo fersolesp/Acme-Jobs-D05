@@ -1,0 +1,17 @@
+employer.job.list.label.reference= Referencia
+employer.job.list.label.deadline= Fecha Límite
+employer.job.list.label.title= Título
+
+employer.job.form.label.reference= Referencia:
+employer.job.form.label.deadline= Fecha Límite:
+employer.job.form.label.title= Título:
+employer.job.form.label.salary= Salario:
+employer.job.form.label.moreInfo= Más Información:
+employer.job.form.label.status= Estado:
+employer.job.form.label.description= Descripción:
+employer.job.form.button.return= Volver
+
+employer.job.form.panel.descriptor= Descriptor
+employer.job.form.label.description= Descripción:
+employer.job.form.label.descriptorMessage= Obligaciones
+employer.job.form.label.auditRecords= Registros de Auditoría

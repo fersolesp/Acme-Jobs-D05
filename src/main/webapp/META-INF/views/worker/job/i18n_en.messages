@@ -1,0 +1,13 @@
+worker.job.form.label.reference= Reference:
+worker.job.form.label.deadline= Deadline:
+worker.job.form.label.title= Title:
+worker.job.form.label.salary= Salary:
+worker.job.form.label.moreInfo= More Information:
+worker.job.form.label.status= Status:
+worker.job.form.label.description= Description:
+worker.job.form.button.return= Return
+
+worker.job.form.panel.descriptor=Descriptor
+worker.job.form.label.description=Description:
+worker.job.form.label.descriptorMessage= Duties
+worker.job.form.label.AuditRecordMessage= Audit Records

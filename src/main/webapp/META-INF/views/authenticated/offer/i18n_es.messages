@@ -1,0 +1,23 @@
+authenticated.offer.list.label.title= Título
+authenticated.offer.list.label.moment= Momento
+authenticated.offer.list.label.deadline= Fecha límite
+
+authenticated.offer.form.label.title= Título:
+authenticated.offer.form.label.moment= Momento:
+authenticated.offer.form.label.deadline= Fecha límite:
+authenticated.offer.form.label.description= Descripción: 
+authenticated.offer.form.label.reward= Recompensa
+authenticated.offer.form.label.minReward= Recompensa mínima:
+authenticated.offer.form.label.maxReward= Recompensa máxima:
+authenticated.offer.form.label.ticker= Código:
+authenticated.offer.form.label.confirm= Confirmar creación de la oferta
+
+authenticated.offer.form.button.create= Crear
+authenticated.offer.form.button.return= Volver
+
+consumer.offer.error.label.deadline= Debe haber una semana al menos entre el momento de la creación y la fecha límite
+consumer.offer.error.label.confirm= Debe confirmar que desea crear la oferta
+consumer.offer.error.label.ticker= El codigo introducido ya esta en uso
+consumer.offer.error.label.reward-currency= La moneda debe estar en EUR
+consumer.offer.error.label.range-reward= La recompensa minima debe ser menor que la recompensa maxima
+consumer.offer.error.label.reward-amount= La cantidad debe ser mayor que 0

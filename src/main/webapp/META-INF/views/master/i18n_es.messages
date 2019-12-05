@@ -1,0 +1,171 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# master.banner.welcome #######################################################
+
+master.banner.background = #4ABDAC 
+
+﻿# master.welcome ##############################################################
+
+master.welcome.title = ¡Bienvenidos!
+master.welcome.text = \
+	Bienvenidos a Acme Jobs!  Encuentra el trabajo con el que siempre soñaste. \
+
+# master.menu #################################################################
+
+master.menu.home = Inicio
+master.menu.sign-up = Registrarse
+master.menu.sign-in = Entrar
+master.menu.sign-out = Salir
+
+# master.menu.anonymous #######################################################
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link-pablo = Enlace favorito de Pablo
+master.menu.anonymous.favourite-link-josemaria = Enlace favorito de Jose Maria
+master.menu.anonymous.favourite-link-Reyes = Enlace favorito de Reyes
+master.menu.anonymous.favourite-link-fernando = Enlace favorito de Fernando
+master.menu.anonymous.favourite-link-vanessa = Enlace favorito de Vanessa
+master.menu.anonymous.shout.create = Gritar!
+master.menu.anonymous.shout.list = Lista de Gritos
+
+# master.menu.anonymous.bulletins ################################################
+
+master.menu.anonymous.bulletins = Boletines
+master.menu.anonymous.cornacBulletin.create = Crear un boletín Cornac
+master.menu.anonymous.cornacBulletin.list = Lista de boletines Cornac
+master.menu.anonymous.blascoBulletin.list= Lista de boletines Blasco
+master.menu.anonymous.blascoBulletin.create= Crear un boletín Blasco
+master.menu.anonymous.pradas-bulletin.create = Crear un boletín Pradas
+master.menu.anonymous.pradas-bulletin.list = Lista de boletines Pradas
+master.menu.anonymous.cardenalBulletin.list = Lista de boletines Cardenal
+master.menu.anonymous.cardenalBulletin.create = Crear un boletín Cardenal
+master.menu.anonymous.sola-bulletin.create = Crear un boletín Sola
+master.menu.anonymous.sola-bulletin.list = Lista de boletines Sola
+
+# master.menu.anonymous.second ################################################
+
+master.menu.anonymous.second = Anónimo 2
+master.menu.anonymous.companyRecord.list = Lista de Registro de Empresa
+master.menu.anonymous.topCompanyRecord.list = Lista de los mejores Registros de Empresa
+master.menu.anonymous.announcement.list= Listas Anuncios
+master.menu.anonymous.investor-records.list = Lista de Registros de Inversores
+master.menu.anonymous.top-investor-records.list = Lista de los mejores Registros de Inversores
+
+
+# master.menu.authenticated ###################################################
+master.menu.authenticated= Autenticado
+master.menu.authenticated.companyRecord.list = Lista de Registro de Empresa
+master.menu.authenticated.request.list= Lista de Solicitudes
+master.menu.authenticated.announcement.list= Lista de Anuncios
+master.menu.authenticated.challenge.list= Lista de Desafíos
+master.menu.authenticated.investor-records.list = Lista de Registros de Inversores
+master.menu.authenticated.offer.list= Lista de Ofertas
+master.menu.authenticated.job.list= Lista de Empleos
+master.menu.authenticated.messageThread.list = Lista de Hilos de Mensajes
+
+# master.menu.worker ###################################################
+
+master.menu.worker = Trabajador
+master.menu.worker.application.list = Lista de Solicitudes
+
+# master.menu.administrator ###################################################
+
+master.menu.administrator = Administrador
+master.menu.administrator.challenge.list = Administrar Desafíos
+master.menu.administrator.challenge.create = Crear un Desafío
+master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.companyRecord.list = Administrar Registros de Empresas
+master.menu.administrator.companyRecord.create = Crear un Registro de Empresa
+master.menu.administrator.announcement.list= Administrar Anuncios
+master.menu.administrator.announcement.create= Crear un Anuncio
+master.menu.administrator.shutdown = Parar el sistema
+master.menu.administrator.dashboard.listing = Mostrar Indicadores
+master.menu.administrator.customisationParameter.list = Mostrar Parámetros Customizables
+master.menu.administrator.chart= Gráficos Estadísticos
+master.menu.administrator.commercial-banner.list = Administrar "Banners" Comerciales
+master.menu.administrator.commercial-banner.create = Crear un "Banner" Comercial
+master.menu.administrator.non-commercial-banner.list = Administrar "Banners" No Comerciales
+master.menu.administrator.non-commercial-banner.create = Crear un "Banner" No Comercial
+master.menu.administrator.investor-records.create = Crear un Registro de Inversor
+master.menu.administrator.investor-records.list = Administrar Registros de Inversores
+
+# master.menu.provider ########################################################
+
+master.menu.provider = Proveedor
+master.menu.provider.favourite-link = Enlace favorito
+master.menu.provider.request.create= Crear una Solicitud
+
+# master.menu.consumer ##########################################################
+
+master.menu.consumer = Consumidor
+master.menu.consumer.favourite-link = Enlace favorito
+master.menu.consumer.offer.create = Crear una Oferta
+
+# master.menu.employer ########################################################
+master.menu.employer= Empleado
+master.menu.employer.job.list= Listar mis Trabajos
+master.menu.employer.application.list= Listar las Solicitudes de mis Trabajos
+
+# master.menu.sponsor ########################################################
+master.menu.sponsor= Patrocinador
+master.menu.sponsor.commercial-banner.list= Listar mis "Banners" Comerciales
+master.menu.sponsor.non-commercial-banner.list= Listar mis "Banners" No Comerciales
+
+# master.menu.auditor ########################################################
+master.menu.auditor= Auditor
+master.menu.auditor.job.list= Trabajos de mis Registros de Auditoría
+master.menu.auditor.job.listnot= Trabajos fuera de mis Registros de Auditoría
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Cuenta
+master.menu.user-account.general-data = Datos generales
+master.menu.user-account.provider = Datos de proveedor
+master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.consumer = Datos de consumidor
+master.menu.user-account.become-consumer = Hazte consumidor
+
+# master.footer ###############################################################
+
+master.footer.title.about = Nosotros
+master.footer.label.company = La empresa
+master.footer.label.license = Licencia
+master.footer.title.social = Social
+master.footer.label.linked-in = Linked-In
+master.footer.label.twitter = Twitter
+master.footer.title.languages = Lenguages
+master.footer.label.english = Inglés
+master.footer.label.spanish = Español
+
+# master.company ##############################################################
+
+master.company.title = La compañía
+master.company.text = \
+	Acme Jobs, Inc. es una compañía fictícia que consiste en un proyecto web \
+	desarrollado por los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
+	en Ingeniería del Software de la Universidad de Sevilla.
+master.company.name = Acme Jobs, Inc.
+master.company.address = Calle Falsa, 123, Sevilla, Sevilla, España
+master.company.phone = +000 123 456
+master.company.email = contact@acme.com
+
+# master.license ##############################################################
+
+master.license.title = Licencia
+master.license.text = \
+	Puede usar este sistema de forma completamente gratuita respetando las leyes \
+	que sean aplicables.  No compartimos ninguna información sobre Ud. con ninguna \
+	otra empresa.  Tan sólo usamos tres cookies, a saber: "JSESSIONID" para identificar \
+	su sesión de trabajo, "remember" para mantener su información de autentificación \
+	durante un máximo de 31 días y "language" para almacenar sus preferencias de \
+	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
+	local de su navegador para saber dónde tienen que ir algunos botones.
+	

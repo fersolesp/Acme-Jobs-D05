@@ -1,0 +1,9 @@
+authenticated.duty.list.label.title= Title
+authenticated.duty.list.label.description= Description
+
+authenticated.duty.form.label.title= Reference:
+authenticated.duty.form.label.description= Deadline:
+authenticated.duty.form.label.timeAmount= Time Amount(%):
+
+authenticated.duty.form.button.return= Return
+authenticated.duty.list.button.return= Return

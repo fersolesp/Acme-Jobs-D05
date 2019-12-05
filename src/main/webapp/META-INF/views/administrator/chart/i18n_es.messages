@@ -1,0 +1,6 @@
+administrator.chart.form.title.totalSectors= Empresas e Inversores Totales por Sector
+administrator.chart.form.label.investor= INVERSORES
+administrator.chart.form.label.companies= EMPRESAS
+administrator.chart.form.label.jobs= EMPLEOS
+administrator.chart.form.label.applications= SOLICITUDES
+administrator.chart.form.title.ratioByStatus= Ratio de Empleos y Solicitudes por Estado

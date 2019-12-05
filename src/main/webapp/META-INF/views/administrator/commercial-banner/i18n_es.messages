@@ -1,0 +1,13 @@
+administrator.commercial-banner.list.label.slogan= Lema
+administrator.commercial-banner.list.label.creditCard= Tarjeta de crédito
+
+administrator.commercial-banner.form.label.picture= Imagen:
+administrator.commercial-banner.form.label.slogan= Lema:
+administrator.commercial-banner.form.label.targetURL= URL de destino: 
+administrator.commercial-banner.form.label.creditCard= Tarjeta de crédito:
+administrator.commercial-banner.form.button.return = Volver
+administrator.commercial-banner.form.button.create = Crear
+administrator.commercial-banner.form.button.update = Actualizar
+administrator.commercial-banner.form.button.delete = Eliminar
+
+administrator.commercial-banner.form.button.return= Volver

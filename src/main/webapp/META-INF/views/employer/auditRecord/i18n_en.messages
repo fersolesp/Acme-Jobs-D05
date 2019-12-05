@@ -1,0 +1,13 @@
+employer.auditRecord.list.label.title= Title
+employer.auditRecord.list.label.auditor= Auditor
+employer.auditRecord.list.label.moment= Moment
+
+employer.auditRecord.list.button.return= Return
+
+employer.auditRecord.form.label.title= Title:
+employer.auditRecord.form.label.status= Status:
+employer.auditRecord.form.label.moment= Moment:
+employer.auditRecord.form.label.body= Body:
+employer.auditRecord.form.label.auditor= Auditor:
+
+employer.auditRecord.form.button.return= Return

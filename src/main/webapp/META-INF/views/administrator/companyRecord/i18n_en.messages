@@ -1,0 +1,18 @@
+administrator.companyRecord.form.label.companyName = Company:
+administrator.companyRecord.form.label.sector = Work Sector:
+administrator.companyRecord.form.label.ceo = CEO:
+administrator.companyRecord.form.label.description = Description:
+administrator.companyRecord.form.label.url = URL:
+administrator.companyRecord.form.label.phone = Phone:
+administrator.companyRecord.form.label.email = Email:
+administrator.companyRecord.form.label.incorporated = Is incorporated?
+administrator.companyRecord.form.label.stars = Stars:
+administrator.companyRecord.form.button.update = Update
+administrator.companyRecord.form.button.delete = Delete
+administrator.companyRecord.form.button.create = Create
+administrator.companyRecord.form.button.return = Return
+
+
+administrator.companyRecord.list.label.companyName = Company
+administrator.companyRecord.list.label.sector = Work sector
+administrator.companyRecord.list.label.ceo = CEO

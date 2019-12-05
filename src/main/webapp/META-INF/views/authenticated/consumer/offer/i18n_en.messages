@@ -1,0 +1,19 @@
+consumer.offer.form.label.title= Title:
+consumer.offer.form.label.moment= Moment:
+consumer.offer.form.label.deadline= Deadline:
+consumer.offer.form.label.description= Description: 
+consumer.offer.form.label.reward= Reward
+consumer.offer.form.label.minReward= Minimun reward:
+consumer.offer.form.label.maxReward= Maximun reward:
+consumer.offer.form.label.ticker= Ticker:
+consumer.offer.form.label.confirm= Confirm offer's creation
+
+consumer.offer.form.button.create= Create
+consumer.offer.form.button.return= Return
+
+consumer.offer.error.label.deadline= Must be in the future
+consumer.offer.error.label.confirm= Must confirm you want to create the offer
+consumer.offer.error.label.ticker= The ticker you set is already in use
+consumer.offer.error.label.reward-currency= Currency must be "EUR" or "€"
+consumer.offer.error.label.range-reward= The minimun reward must be minor than maximun reward
+consumer.offer.error.label.reward-amount= Amount mustn't be negative

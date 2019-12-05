@@ -1,0 +1,10 @@
+authenticated.messageThread.list.label.title = Title
+authenticated.messageThread.list.label.moment = Moment
+
+authenticated.messageThread.form.label.moment = Moment:
+authenticated.messageThread.form.label.title = Title:
+
+authenticated.messageThread.form.button.participants = Participants
+authenticated.messageThread.form.button.messages = Messages
+authenticated.messageThread.form.button.return = Return
+

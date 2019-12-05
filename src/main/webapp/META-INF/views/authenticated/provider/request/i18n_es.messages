@@ -1,0 +1,16 @@
+provider.request.form.label.title= Título:
+provider.request.form.label.moment= Momento:
+provider.request.form.label.deadline= Fecha límite:
+provider.request.form.label.text= Texto:
+provider.request.form.label.reward= Recompensa:
+provider.request.form.label.ticker= Código: 
+provider.request.form.label.accept= ¿Desea crear la recompensa?
+
+provider.request.error.must-accept= Debe confirmar que desea crear la solicitud
+provider.request.error.duplicated= El código introducido ya esta en uso
+provider.request.error.deadline= La fecha límite debe estar en el futuro
+provider.request.error.reward-currency= La moneda debe ser "EUR" o "€"
+provider.request.error.reward-amount= No se permiten cantidades negativas
+
+provider.request.form.button.create= Crear
+provider.request.form.button.return= Volver

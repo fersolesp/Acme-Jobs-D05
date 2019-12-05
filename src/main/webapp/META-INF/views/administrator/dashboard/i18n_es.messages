@@ -1,0 +1,21 @@
+administrator.dashboard.form.label.totals = Totales
+administrator.dashboard.form.label.totalAnnouncements = Número total de Anuncios
+administrator.dashboard.form.label.totalCompanyRecords = Número total de Registro de Empresas
+administrator.dashboard.form.label.totalInvestorRecords = Número total de Registro de Inversores
+
+administrator.dashboard.form.label.requests = Solicitudes
+administrator.dashboard.form.label.maxRewardOfActiveRequests = Recompensa máxima de las Solicitudes activas
+administrator.dashboard.form.label.minRewardOfActiveRequests = Recompensa mínima de las Solicitudes activas
+administrator.dashboard.form.label.avgRewardOfActiveRequests = Media de las recompensas de las Solicitudes activas
+administrator.dashboard.form.label.standardDeviationRewardOfActiveRequests = Desviación típica de las recompensas de las Solicitudes activas
+
+administrator.dashboard.form.label.offers = Ofertas
+administrator.dashboard.form.label.maxRewardOfActiveOffers = Recompensa máxima de las Ofertas activas
+administrator.dashboard.form.label.minRewardOfActiveOffers = Recompensa mínima de las Ofertas activas
+administrator.dashboard.form.label.avgRewardOfActiveOffers = Media de las recompensas de las Ofertas activas
+administrator.dashboard.form.label.standardDeviationRewardOfActiveOffers = Desviación típica de las recompensas de las Ofertas activas
+
+administrator.dashboard.form.label.appsAndJobs= Solicitudes y Empleos
+administrator.dashboard.form.label.avgApplicationsPerEmployer= Media de solicitudes por Empleador
+administrator.dashboard.form.label.avgApplicationsPerWorker= Media de solicitudes por Trabajador
+administrator.dashboard.form.label.avgJobsPerEmployer= Media de trabajos por Empleador

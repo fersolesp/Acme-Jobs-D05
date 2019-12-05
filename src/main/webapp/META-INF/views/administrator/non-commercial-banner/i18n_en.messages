@@ -1,0 +1,13 @@
+administrator.non-commercial-banner.list.label.slogan= Slogan
+
+
+administrator.non-commercial-banner.form.label.picture= Picture:
+administrator.non-commercial-banner.form.label.slogan= Slogan:
+administrator.non-commercial-banner.form.label.targetURL= Target URL: 
+administrator.non-commercial-banner.form.label.jingle= Jingle:
+administrator.non-commercial-banner.form.button.return = Return
+administrator.non-commercial-banner.form.button.create = Create
+administrator.non-commercial-banner.form.button.update = Update
+administrator.non-commercial-banner.form.button.delete = Delete
+
+administrator.non-commercial-banner.form.button.return= Return

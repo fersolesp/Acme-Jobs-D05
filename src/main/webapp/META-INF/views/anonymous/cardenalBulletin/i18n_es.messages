@@ -1,0 +1,19 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+anonymous.cardenalBulletin.form.label.developer = Desarrollador:
+anonymous.cardenalBulletin.form.label.skills = Habilidades:
+anonymous.cardenalBulletin.form.button.create = Crear Boletin!
+anonymous.cardenalBulletin.form.button.return = Volver
+
+anonymous.cardenalBulletin.list.label.moment = Momento
+anonymous.cardenalBulletin.list.label.author = Desarrollador
+anonymous.cardenalBulletin.list.label.text = Habilidades

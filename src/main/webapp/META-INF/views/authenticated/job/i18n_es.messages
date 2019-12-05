@@ -1,0 +1,16 @@
+authenticated.job.list.label.reference= Referencia
+authenticated.job.list.label.deadline= Fecha Límite
+authenticated.job.list.label.title= Título
+
+authenticated.job.form.label.reference= Referencia:
+authenticated.job.form.label.deadline= Fecha Límite:
+authenticated.job.form.label.title= Título:
+authenticated.job.form.label.salary= Salario:
+authenticated.job.form.label.moreInfo= Más Información:
+authenticated.job.form.label.status= Estado:
+authenticated.job.form.label.descriptor.description= Descripción:
+authenticated.job.form.button.return= Volver
+
+authenticated.job.form.label.descriptorMessage= Obligaciones
+authenticated.job.form.button.auditRecord= Registros de Auditoria
+authenticated.job.form.panel.descriptor= Descriptor

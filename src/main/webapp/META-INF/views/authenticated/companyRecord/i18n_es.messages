@@ -1,0 +1,15 @@
+authenticated.companyRecord.form.label.companyName = Empresa:
+authenticated.companyRecord.form.label.sector = Sector:
+authenticated.companyRecord.form.label.ceo = CEO:
+authenticated.companyRecord.form.label.description = Descripción:
+authenticated.companyRecord.form.label.url = URL:
+authenticated.companyRecord.form.label.phone = Teléfono:
+authenticated.companyRecord.form.label.email = Email:
+authenticated.companyRecord.form.label.incorporated = ¿Está incorporado?
+authenticated.companyRecord.form.label.stars = Estrellas:
+authenticated.companyRecord.form.button.return = Volver
+
+
+authenticated.companyRecord.list.label.companyName = Empresa
+authenticated.companyRecord.list.label.sector = Sector
+authenticated.companyRecord.list.label.ceo = CEO

@@ -1,0 +1,170 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# master.banner.welcome #######################################################
+
+master.banner.background = #4ABDAC 
+
+# master.welcome ##############################################################
+
+master.welcome.title = Welcome!
+master.welcome.text = \
+	Welcome to Acme Jobs! Find the profession you have always dream of \
+
+# master.menu #################################################################
+
+master.menu.home = Home
+master.menu.sign-up = Sign up
+master.menu.sign-in = Sign in
+master.menu.sign-out = Sign out
+
+# master.menu.anonymous #######################################################
+
+master.menu.anonymous = Anonymous
+master.menu.anonymous.favourite-link-pablo = Pablo's favourite link
+master.menu.anonymous.favourite-link-josemaria = Jose Maria's Favourite Link
+master.menu.anonymous.favourite-link-Reyes = Reyes' Favourite link
+master.menu.anonymous.favourite-link-fernando = Fernando's favourite link
+master.menu.anonymous.favourite-link-vanessa = Vanessa's favourite link
+master.menu.anonymous.shout.create = Shout!
+master.menu.anonymous.shout.list = List shouts
+
+# master.menu.anonymous.bulletins ################################################
+
+master.menu.anonymous.bulletins = Bulletins
+master.menu.anonymous.cornacBulletin.create = Create a Cornac bulletin!
+master.menu.anonymous.cornacBulletin.list = List Cornac bulletins
+master.menu.anonymous.blascoBulletin.list= List Blasco bulletins
+master.menu.anonymous.blascoBulletin.create= Create a Blasco bulletin!
+master.menu.anonymous.pradas-bulletin.create = Create a Pradas bulletin!
+master.menu.anonymous.pradas-bulletin.list = List Pradas bulletins
+master.menu.anonymous.cardenalBulletin.list = List Cardenal bulletins
+master.menu.anonymous.cardenalBulletin.create = Create a Cardenal bulletin!
+master.menu.anonymous.sola-bulletin.create = Create a Sola bulletin!
+master.menu.anonymous.sola-bulletin.list = List Sola bulletins
+
+
+# master.menu.anonymous.second ################################################
+
+master.menu.anonymous.second = Anonymous 2
+master.menu.anonymous.companyRecord.list = List Company Records
+master.menu.anonymous.topCompanyRecord.list = List Top Company Records
+master.menu.anonymous.announcement.list= List Announcements
+master.menu.anonymous.investor-records.list = List Investor Records
+master.menu.anonymous.top-investor-records.list = List Top Investor Records
+
+# master.menu.authenticated ###################################################
+master.menu.authenticated= Authenticated
+master.menu.authenticated.announcement.list= List Announcements
+master.menu.authenticated.companyRecord.list = List Company Records
+master.menu.authenticated.request.list= List Requests
+master.menu.authenticated.challenge.list= List Challenges
+master.menu.authenticated.investor-records.list = List Investor Records
+master.menu.authenticated.offer.list= List Offers
+master.menu.authenticated.job.list= List Jobs
+master.menu.authenticated.messageThread.list = List Messages Threads
+
+# master.menu.worker ###################################################
+
+master.menu.worker = Worker
+master.menu.worker.application.list = List of Applications
+
+# master.menu.administrator ###################################################
+
+master.menu.administrator = Administrator
+master.menu.administrator.challenge.list = Manage Challenges
+master.menu.administrator.challenge.create = Create a Challenge
+master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.companyRecord.list = Manage Company Records
+master.menu.administrator.companyRecord.create = Create a Company Record
+master.menu.administrator.announcement.list= Manage Announcements
+master.menu.administrator.announcement.create= Create a Announcement
+master.menu.administrator.shutdown = Shut down
+master.menu.administrator.dashboard.listing = Display Indicators
+master.menu.administrator.customisationParameter.list = Display Customisation Parameters
+master.menu.administrator.chart= Stadistic Charts
+master.menu.administrator.commercial-banner.list = Manage Commercial Banners
+master.menu.administrator.commercial-banner.create = Create a Commercial Banner
+master.menu.administrator.non-commercial-banner.list = Manage Non Commercial Banners
+master.menu.administrator.non-commercial-banner.create = Create a Non Commercial Banner
+master.menu.administrator.investor-records.create = Create a Investor Record
+master.menu.administrator.investor-records.list = Manage Investor Records
+
+# master.menu.provider ########################################################
+
+master.menu.provider = Provider
+master.menu.provider.favourite-link = Favourite link
+master.menu.provider.request.create= Create a Request
+
+# master.menu.consumer ##########################################################
+
+master.menu.consumer = Consumer
+master.menu.consumer.favourite-link = Favourite link
+master.menu.consumer.offer.create = Create an Offer
+
+# master.menu.employer ########################################################
+master.menu.employer= Employer
+master.menu.employer.job.list= List my Jobs
+master.menu.employer.application.list= List Applications of my Jobs
+
+# master.menu.sponsor ########################################################
+master.menu.sponsor= Sponsor
+master.menu.sponsor.commercial-banner.list= List my Commercial Banners
+master.menu.sponsor.non-commercial-banner.list= List my Non Commercial Banners
+
+# master.menu.auditor ########################################################
+master.menu.auditor= Auditor
+master.menu.auditor.job.list= Jobs of my Audit Records
+master.menu.auditor.job.listnot= Jobs out of my Audit Records
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Account
+master.menu.user-account.general-data = General data
+master.menu.user-account.provider = Provider data
+master.menu.user-account.become-provider = Become a provider
+master.menu.user-account.consumer = Consumer data
+master.menu.user-account.become-consumer = Become a consumer
+
+# master.footer ###############################################################
+
+master.footer.title.about = About us
+master.footer.label.company = Company
+master.footer.label.license = License
+master.footer.title.social = Social
+master.footer.label.linked-in = Linked-In
+master.footer.label.twitter = Twitter
+master.footer.title.languages = Languages
+master.footer.label.english = English
+master.footer.label.spanish = Spanish
+
+# master.company ##############################################################
+
+master.company.title = Acme Jobs
+master.company.text = \
+	Acme Jobs, Inc. is a fictitious company that consists on a \
+	web project made by the students of the Design and Testing subject of the \
+	Software Engineering Curriculum of the University of Sevilla.
+master.company.name = Acme Jobs, Inc.
+master.company.address = 123 Falsa Street, Seville, Seville, Spain
+master.company.phone = +000 123 456
+master.company.email = contact@acme.com
+
+# master.license ##############################################################
+
+master.license.title = License
+master.license.text = \
+	You may use this system free of charge, as long as you carefully observe the \
+	existing applicable laws.  Please, note that we do not share any information \
+	about you with any other company.  We only use three cookies, namely: \
+	"JSESSIONID" to identify your work session, "remember" to let you authenticate \
+	automatically for a maximum of 31 days, and "language" to store your language \
+	preferences. Additionally, we store an item called "returnStack" in your browser's \
+	local storage to keep track of the document to which some buttons must return.

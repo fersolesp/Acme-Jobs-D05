@@ -1,0 +1,13 @@
+administrator.non-commercial-banner.list.label.slogan= Lema
+
+
+administrator.non-commercial-banner.form.label.picture= Imagen:
+administrator.non-commercial-banner.form.label.slogan= Lema:
+administrator.non-commercial-banner.form.label.targetURL= URL de destino: 
+administrator.non-commercial-banner.form.label.jingle= Sinfonía:
+administrator.non-commercial-banner.form.button.return = Volver
+administrator.non-commercial-banner.form.button.create = Crear
+administrator.non-commercial-banner.form.button.update = Actualizar
+administrator.non-commercial-banner.form.button.delete = Eliminar
+
+administrator.non-commercial-banner.form.button.return= Volver

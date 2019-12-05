@@ -1,0 +1,6 @@
+administrator.chart.form.title.totalSectors= Total Companies and Investors per Sector
+administrator.chart.form.label.investor= INVESTORS
+administrator.chart.form.label.companies= COMPANIES
+administrator.chart.form.label.jobs= JOBS
+administrator.chart.form.label.applications= APPLICATIONS
+administrator.chart.form.title.ratioByStatus= Ratio of Jobs and Applications by Status

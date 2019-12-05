@@ -1,0 +1,15 @@
+anonymous.companyRecord.form.label.companyName = Company:
+anonymous.companyRecord.form.label.sector = Sector:
+anonymous.companyRecord.form.label.ceo = CEO:
+anonymous.companyRecord.form.label.description = Description:
+anonymous.companyRecord.form.label.url = URL:
+anonymous.companyRecord.form.label.phone = Phone:
+anonymous.companyRecord.form.label.email = Email:
+anonymous.companyRecord.form.label.incorporated = Is incorporated?
+anonymous.companyRecord.form.label.stars = Stars:
+anonymous.companyRecord.form.button.return = Return
+
+
+anonymous.companyRecord.list.label.companyName = Company
+anonymous.companyRecord.list.label.sector = Sector
+anonymous.companyRecord.list.label.ceo = CEO

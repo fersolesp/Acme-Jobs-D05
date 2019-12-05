@@ -1,0 +1,11 @@
+authenticated.auditRecord.list.label.title= Title
+authenticated.auditRecord.list.label.auditor= Auditor
+authenticated.auditRecord.list.label.moment= Moment
+
+authenticated.auditRecord.form.label.title= Title:
+authenticated.auditRecord.form.label.status= Status:
+authenticated.auditRecord.form.label.moment= Moment:
+authenticated.auditRecord.form.label.body= Body:
+authenticated.auditRecord.form.label.auditor= Auditor:
+
+authenticated.auditRecord.form.button.return= Return

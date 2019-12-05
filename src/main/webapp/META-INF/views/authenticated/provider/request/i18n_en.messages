@@ -1,0 +1,16 @@
+provider.request.form.label.title= Title:
+provider.request.form.label.moment= Moment:
+provider.request.form.label.deadline= Deadline:
+provider.request.form.label.text= Text:
+provider.request.form.label.reward= Reward:
+provider.request.form.label.ticker= Ticker:
+provider.request.form.label.accept= Do you want to create the request?
+
+provider.request.error.must-accept = Must confirm you want to create the request
+provider.request.error.duplicated= The ticker you set is already in use
+provider.request.error.deadline= The deadline must be in the future
+provider.request.error.reward-currency= Currency must be "EUR" or "€"
+provider.request.error.reward-amount= Amount mustn't be negative
+
+provider.request.form.button.create= Create
+provider.request.form.button.return= Return

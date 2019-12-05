@@ -1,0 +1,8 @@
+auditor.duty.list.label.title= Title
+auditor.duty.list.label.description= Description
+
+auditor.duty.form.label.title= Reference:
+auditor.duty.form.label.description= Deadline:
+auditor.duty.form.label.timeAmount= Time Amount(%):
+
+auditor.duty.form.button.return= Return

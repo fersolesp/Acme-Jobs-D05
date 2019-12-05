@@ -1,0 +1,13 @@
+anonymous.shout.form.label.author = Autor:
+anonymous.shout.form.label.text = Texto:
+anonymous.shout.form.button.create = Gritar!
+anonymous.shout.form.button.return = Volver
+
+anonymous.blascoBulletin.list.label.moment= Momento
+anonymous.blascoBulletin.list.label.userName= Nombre de Usuario
+anonymous.blascoBulletin.list.label.description= Descripción
+
+anonymous.blascoBulletin.form.button.create= Crear Boletín Blasco
+anonymous.blascoBulletin.form.button.return= Volver
+anonymous.blascoBulletin.form.label.description= Descripción:
+anonymous.blascoBulletin.form.label.userName= Nombre de usuario:

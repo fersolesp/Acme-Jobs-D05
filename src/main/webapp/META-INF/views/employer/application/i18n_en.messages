@@ -1,0 +1,16 @@
+employer.application.list.label.referenceNumber = Reference Number
+employer.application.list.label.creationMoment = Creation Moment 
+employer.application.list.label.status = Application Status
+employer.application.list.label.statement = Statement
+
+employer.application.form.label.referenceNumber = Reference Number:
+employer.application.form.label.creationMoment = Creation Moment:
+employer.application.form.label.status = Application Status:
+employer.application.form.label.statement = Statement:
+employer.application.form.label.skills = Skills:
+employer.application.form.label.qualifications = Qualifications:
+
+employer.application.form.button.return = Return
+employer.application.list.button.return = Return
+
+employer.application.form.label.jobOf = Link to the corresponding Job

@@ -1,0 +1,4 @@
+authenticated.authenticated.list.label.username = Nombre de usuario
+authenticated.authenticated.list.label.name = Nombre
+authenticated.authenticated.list.label.surname = Apellidos
+authenticated.authenticated.list.button.return= Volver
