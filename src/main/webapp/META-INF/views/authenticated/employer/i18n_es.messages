@@ -1,0 +1,6 @@
+authenticated.employer.form.label.company= Compañía:
+authenticated.employer.form.label.sector= Sector:
+
+authenticated.employer.form.button.create= Volverme un empleador
+authenticated.employer.form.button.update= Actualizar mi información de empleador
+authenticated.employer.form.button.return= Volver

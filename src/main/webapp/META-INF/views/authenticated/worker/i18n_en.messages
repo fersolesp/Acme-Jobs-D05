@@ -1,0 +1,6 @@
+authenticated.worker.form.label.qualifications= Quialifications:
+authenticated.worker.form.label.skills= Skills:
+
+authenticated.worker.form.button.create= Become a worker
+authenticated.worker.form.button.update= Update my worker data
+authenticated.worker.form.button.return= Return

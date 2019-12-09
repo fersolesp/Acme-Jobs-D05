@@ -1,0 +1,6 @@
+authenticated.employer.form.label.company= Company:
+authenticated.employer.form.label.sector= Sector:
+
+authenticated.employer.form.button.create= Become an employer
+authenticated.employer.form.button.update= Update my employer data
+authenticated.employer.form.button.return= Return

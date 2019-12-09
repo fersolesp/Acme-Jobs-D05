@@ -1,0 +1,6 @@
+authenticated.worker.form.label.qualifications= Calificaciones:
+authenticated.worker.form.label.skills= Habilidades:
+
+authenticated.worker.form.button.create= Volverme un trabajador
+authenticated.worker.form.button.update= Actualizar mi información de trabajador
+authenticated.worker.form.button.return= Volver
