@@ -1,0 +1,6 @@
+authenticated.employer.form.label.company = Compañía:
+authenticated.employer.form.label.sector = Sector:
+
+authenticated.employer.form.button.create = Registrar
+authenticated.employer.form.button.update = Modificar
+authenticated.employer.form.button.return = Volver
