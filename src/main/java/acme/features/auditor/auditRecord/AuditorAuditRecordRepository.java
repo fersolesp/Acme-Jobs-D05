@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.auditRecords.AuditRecord;
+import acme.entities.jobs.Job;
+import acme.entities.roles.Auditor;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -24,4 +26,9 @@ public interface AuditorAuditRecordRepository extends AbstractRepository {
 	@Query("select j.status from Job j where j.id=?1")
 	int findIsJobPublished(int jobId);
 
+	@Query("select j from Job j where j.id=?1")
+	Job findJobById(int jobId);
+
+	@Query("select au from Auditor au where au.id=?1")
+	Auditor findAuditorById(int auditorId);
 }

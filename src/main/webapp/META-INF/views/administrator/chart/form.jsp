@@ -12,6 +12,18 @@
 	<acme:message code="administrator.chart.form.title.ratioByStatus"/>
 </h2>
 	<canvas id="canvas2"></canvas>
+<h2>
+	<acme:message code="administrator.chart.form.title.applicationsPerDay"/>
+</h2>
+	<canvas id="canvas3"></canvas>	
+	
+	<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
+						<jstl:out value='${i[0]}'/>,
+						</jstl:forEach>
+						
+<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
+						<jstl:out value='${i[1]}'/>,
+						</jstl:forEach>
 </div>
 		   		
 
@@ -141,6 +153,53 @@
 		var canvas2, context;
 		canvas2=document.getElementById("canvas2");
 		context=canvas2.getContext("2d");
+		
+		new Chart( context, {
+			type : "bar",
+			data : data,
+			options : options
+		});
+	});
+</script>
+
+<script type="text/javascript">
+
+
+
+	$(document).ready(function(){
+		var data = {	
+				datasets : [
+					{
+						backgroundColor:"rgba(74, 189, 172, 0.7)",
+						label:"<acme:message code='administrator.chart.form.label.acceptedPerDay'/>",
+						
+						data :[	<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
+									{
+									t: "new Date(${i[0]})",
+									y:<jstl:out value='${i[1]}'/>
+									},
+								</jstl:forEach>
+					 	]
+					}
+				]
+			};
+		
+		var options = {
+				scales: {
+		            xAxes: [{
+		                type: 'time',
+		                distribution: 'series',
+		                
+		            }]
+		        },
+			legend : {
+				display: true
+			}
+		};
+	
+		var canvas3, context;
+		canvas3=document.getElementById("canvas3");
+		context=canvas3.getContext("2d");
 		
 		new Chart( context, {
 			type : "bar",
