@@ -28,5 +28,6 @@ public class SponsorCommercialBannerController extends AbstractController<Sponso
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+
 	}
 }

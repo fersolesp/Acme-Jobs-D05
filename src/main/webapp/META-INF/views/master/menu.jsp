@@ -130,7 +130,11 @@
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 			<acme:menu-suboption code="master.menu.sponsor.commercial-banner.list" action="/sponsor/commercial-banner/list-mine"/>
+			<acme:menu-suboption code="master.menu.sponsor.commercial-banner.create" action="/sponsor/commercial-banner/create"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.sponsor.non-commercial-banner.list" action="/sponsor/non-commercial-banner/list-mine"/>
+			<acme:menu-suboption code="master.menu.sponsor.non-commercial-banner.create" action="/sponsor/non-commercial-banner/create"/>
+			
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.job.list" action="/auditor/job/list-mine"/>
@@ -148,6 +152,8 @@
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create" access="!hasRole('Sponsor')"/>
+			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" access="hasRole('Sponsor')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>

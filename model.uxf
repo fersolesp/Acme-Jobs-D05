@@ -810,7 +810,7 @@ m2=0..*
 Sponsor
 --
 + organisationName: String {NotBlank}
-+ creditCard: String {CreditCardNumber}</panel_attributes>
++ creditCard: String {}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
