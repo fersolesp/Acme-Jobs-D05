@@ -1,0 +1,9 @@
+authenticated.worker.worker.form.title.create= Hazte trabajador
+authenticated.worker.worker.form.title.update= Actualizar datos del trabajador
+
+authenticated.worker.form.label.qualifications= Calificaciones:
+authenticated.worker.form.label.skills= Habilidades:
+
+authenticated.worker.form.button.create= Registrar
+authenticated.worker.form.button.update= Actualizar
+authenticated.worker.form.button.return= Volver
