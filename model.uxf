@@ -822,7 +822,7 @@ Sponsor
       <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
-m1=1
+m1=0..1
 m2=0..*
 Created by ^</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>

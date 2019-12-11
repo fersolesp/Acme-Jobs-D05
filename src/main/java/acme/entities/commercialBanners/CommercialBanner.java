@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 
@@ -28,9 +27,8 @@ public class CommercialBanner extends Banner {
 
 	// Relationships ------------------------------------------
 
-	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	private Sponsor				sponsor;
 
 }

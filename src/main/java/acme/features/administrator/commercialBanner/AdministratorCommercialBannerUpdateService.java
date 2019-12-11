@@ -1,10 +1,14 @@
 
 package acme.features.administrator.commercialBanner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.commercialBanners.CommercialBanner;
+import acme.entities.customisationParameters.CustomisationParameter;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -29,7 +33,6 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 
 	@Override
 	public void bind(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
-		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -39,7 +42,6 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 
 	@Override
 	public void unbind(final Request<CommercialBanner> request, final CommercialBanner entity, final Model model) {
-		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -66,6 +68,38 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 		assert entity != null;
 		assert errors != null;
 
+		boolean isSpam;
+		List<CustomisationParameter> cp;
+		String[] spamWordsEnglish, spamWordsSpanish;
+		Double englishThreshold, spanishThreshold;
+
+		if (!errors.hasErrors("slogan")) {
+
+			cp = new ArrayList<>(this.repository.findCustomisationParameters());
+			spamWordsEnglish = cp.get(0).getSpamWordList().split(",");
+			spamWordsSpanish = cp.get(1).getSpamWordList().split(",");
+			englishThreshold = cp.get(0).getSpamThreshold();
+			spanishThreshold = cp.get(1).getSpamThreshold();
+
+			String slogan = entity.getSlogan().toLowerCase();
+			Integer numberOfEnglishSpamWords = 0;
+			Integer numberOfSpanishSpamWords = 0;
+
+			for (String word : spamWordsEnglish) {
+				if (slogan.contains(word.trim())) {
+					numberOfEnglishSpamWords++;
+				}
+			}
+
+			for (String word : spamWordsSpanish) {
+				if (slogan.contains(word.trim())) {
+					numberOfSpanishSpamWords++;
+				}
+			}
+			isSpam = numberOfEnglishSpamWords * 100 / slogan.length() > englishThreshold || numberOfSpanishSpamWords * 100 / slogan.length() > spanishThreshold;
+
+			errors.state(request, !isSpam, "slogan", "sponsor.non-commercial-banner.error.spam");
+		}
 	}
 
 	@Override

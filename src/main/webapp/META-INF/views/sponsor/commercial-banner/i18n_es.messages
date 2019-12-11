@@ -6,4 +6,11 @@ sponsor.commercial-banner.form.label.slogan= Lema:
 sponsor.commercial-banner.form.label.targetURL= URL de destino: 
 sponsor.commercial-banner.form.label.creditCard= Tarjeta de crédito:
 
+sponsor.commercial-banner.form.button.return = Volver
+sponsor.commercial-banner.form.button.create = Crear
+sponsor.commercial-banner.form.button.update = Actualizar
+sponsor.commercial-banner.form.button.delete = Eliminar
+
 sponsor.commercial-banner.form.button.return= Volver
+
+sponsor.commercial-banner.error.spam = Contiene demasiadas palabras de spam

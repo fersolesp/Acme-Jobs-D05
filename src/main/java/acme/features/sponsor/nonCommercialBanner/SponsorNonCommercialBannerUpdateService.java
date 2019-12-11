@@ -13,6 +13,7 @@ import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -28,7 +29,19 @@ public class SponsorNonCommercialBannerUpdateService implements AbstractUpdateSe
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int ncbId;
+		NonCommercialBanner ncb;
+		Sponsor sponsor;
+		Principal principal;
+
+		ncbId = request.getModel().getInteger("id");
+		ncb = this.repository.findOneNonCommercialBannerById(ncbId);
+		sponsor = ncb.getSponsor();
+		principal = request.getPrincipal();
+		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
