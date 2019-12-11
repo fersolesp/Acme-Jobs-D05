@@ -1037,7 +1037,7 @@
     
     <bean name="application3" class="acme.entities.applications.Application">
     	<property name="referenceNumber" value="EMP1-JOB2:WOR1"/>
-    	<property name="creationMoment" value="2019/12/01 21:45"/>
+    	<property name="creationMoment" value="2019/12/01 20:00"/>
     	<property name="status" value="PENDING"/>
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Python, JavaScript"/>
@@ -1059,7 +1059,7 @@
     
     <bean name="application5" class="acme.entities.applications.Application">
     	<property name="referenceNumber" value="EMP2-JOB1:WOR1"/>
-    	<property name="creationMoment" value="2019/12/01 23:10"/>
+    	<property name="creationMoment" value="2019/12/01 20:00"/>
     	<property name="status" value="REJECTED"/>
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Java, JavaScript"/>
@@ -1147,7 +1147,7 @@
     
     <bean name="application13" class="acme.entities.applications.Application">
     	<property name="referenceNumber" value="EMP1-JOB4:WOR1"/>
-    	<property name="creationMoment" value="2019/12/02 19:30"/>
+    	<property name="creationMoment" value="2019/12/01 19:30"/>
     	<property name="status" value="REJECTED"/>
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Java, JavaScript"/>
@@ -1158,7 +1158,7 @@
   	
   	 <bean name="application14" class="acme.entities.applications.Application">
     	<property name="referenceNumber" value="EMP2-JOB4:WOR1"/>
-    	<property name="creationMoment" value="2019/12/02 19:30"/>
+    	<property name="creationMoment" value="2019/12/01 19:30"/>
     	<property name="status" value="PENDING"/>
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Java, JavaScript"/>
@@ -1169,7 +1169,7 @@
     
      <bean name="application15" class="acme.entities.applications.Application">
     	<property name="referenceNumber" value="EMP2-JOB4:WOR2"/>
-    	<property name="creationMoment" value="2019/12/02 19:30"/>
+    	<property name="creationMoment" value="2019/12/01 19:30"/>
     	<property name="status" value="REJECTED"/>
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Java, JavaScript"/>

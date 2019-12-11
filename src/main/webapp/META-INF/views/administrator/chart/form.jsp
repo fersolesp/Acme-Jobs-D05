@@ -16,14 +16,6 @@
 	<acme:message code="administrator.chart.form.title.applicationsPerDay"/>
 </h2>
 	<canvas id="canvas3"></canvas>	
-	
-	<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
-						<jstl:out value='${i[0]}'/>,
-						</jstl:forEach>
-						
-<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
-						<jstl:out value='${i[1]}'/>,
-						</jstl:forEach>
 </div>
 		   		
 
@@ -175,12 +167,36 @@
 						
 						data :[	<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
 									{
-									t: "new Date(${i[0]})",
+									t: new Date("<jstl:out value='${i[0]}'/>"),
 									y:<jstl:out value='${i[1]}'/>
 									},
 								</jstl:forEach>
 					 	]
-					}
+					},
+					{
+						backgroundColor:"rgba(255, 102, 102,0.7)",
+						label:"<acme:message code='administrator.chart.form.label.rejectedPerDay'/>",
+						
+						data :[	<jstl:forEach var="i" items="${rejectedApplicationsInFourWeeks}">
+									{
+									t: new Date("<jstl:out value='${i[0]}'/>"),
+									y:<jstl:out value='${i[1]}'/>
+									},
+								</jstl:forEach>
+					 	]
+					},
+					{
+						backgroundColor:"rgba(247, 183, 51, 0.7)",
+						label:"<acme:message code='administrator.chart.form.label.pendingPerDay'/>",
+						
+						data :[	<jstl:forEach var="i" items="${pendingApplicationsInFourWeeks}">
+									{
+									t: new Date("<jstl:out value='${i[0]}'/>"),
+									y:<jstl:out value='${i[1]}'/>
+									},
+								</jstl:forEach>
+					 	]
+					},					
 				]
 			};
 		
@@ -190,7 +206,15 @@
 		                type: 'time',
 		                distribution: 'series',
 		                
-		            }]
+		            }],
+		            yAxes : [
+						{
+							ticks : {
+								suggestedMin : 0.0,
+								suggestedMax : 1.0
+							}
+						}
+					]
 		        },
 			legend : {
 				display: true
@@ -202,7 +226,7 @@
 		context=canvas3.getContext("2d");
 		
 		new Chart( context, {
-			type : "bar",
+			type : "line",
 			data : data,
 			options : options
 		});
