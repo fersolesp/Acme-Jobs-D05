@@ -14,3 +14,4 @@ sponsor.commercial-banner.form.button.delete = Delete
 sponsor.commercial-banner.form.button.return= Return
 
 sponsor.commercial-banner.error.spam = Contains too many spam words
+sponsor.commercial-banner.form.error.creditCard = You must have a credit card registered on your Sponsor profile to create a Commercial Banner

@@ -41,7 +41,15 @@ public class AuthenticatedSponsorUpdateService implements AbstractUpdateService<
 	public boolean authorise(final Request<Sponsor> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int numberOfSponsorRoles;
+		int idUserAccount;
+
+		idUserAccount = request.getPrincipal().getAccountId();
+		numberOfSponsorRoles = this.repository.findNumberOfSponsorRolesById(idUserAccount);
+		result = numberOfSponsorRoles != 0;
+
+		return result;
 	}
 
 	@Override

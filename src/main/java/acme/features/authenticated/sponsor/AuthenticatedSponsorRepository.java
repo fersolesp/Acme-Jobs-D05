@@ -28,4 +28,7 @@ public interface AuthenticatedSponsorRepository extends AbstractRepository {
 	@Query("select s from Sponsor s where s.userAccount.id = ?1")
 	Sponsor findOneSponsorByUserAccountId(int id);
 
+	@Query("select count(s) from Sponsor s where s.userAccount.id = ?1")
+	int findNumberOfSponsorRolesById(int idUserAccount);
+
 }
