@@ -1,9 +1,9 @@
 employer.duty.list.label.title= Title
 employer.duty.list.label.description= Description
 
-employer.duty.form.label.title= Reference:
-employer.duty.form.label.description= Deadline:
+employer.duty.form.label.title= Title:
+employer.duty.form.label.description= Description:
 employer.duty.form.label.timeAmount= Time Amount(%):
 
+employer.duty.form.button.create= Create
 employer.duty.form.button.return= Return
-employer.duty.list.button.return= Return

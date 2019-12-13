@@ -2,6 +2,7 @@ employer.job.list.label.reference= Reference
 employer.job.list.label.deadline= Deadline
 employer.job.list.label.title= Title
 employer.job.form.label.descriptorMessage= Duties
+employer.job.form.label.createDuty= Create Duty
 
 employer.job.form.label.reference= Reference:
 employer.job.form.label.deadline= Deadline:
@@ -9,10 +10,22 @@ employer.job.form.label.title= Title:
 employer.job.form.label.salary= Salary:
 employer.job.form.label.moreInfo= More Information:
 employer.job.form.label.status= Status:
+employer.job.form.label.status.draft= Draft
+employer.job.form.label.status.published= Published
 employer.job.form.label.description= Description:
+
+employer.job.form.button.create= Create
+employer.job.form.button.update= Update
+employer.job.form.button.delete= Delete
 employer.job.form.button.return= Return
 
 employer.job.form.panel.descriptor=Descriptor
 employer.job.form.label.description=Description:
 employer.job.form.label.descriptorMessage= Duties
 employer.job.form.label.auditRecords= Audit Records
+
+employer.job.error.referenceSpam= Contains too many spam words on reference's field.
+employer.job.error.titleSpam= Contains too many spam words on title's field.
+employer.job.error.moreInfoSpam= Contains too many spam words on moreInfo's field.
+employer.job.error.label.amountTime= A Job cannot be saved as "published" until the Duties doesn't sum up to 100% the weekly workload.
+employer.job.error.label.applications= Cannot delete the Job because it has associated applications.

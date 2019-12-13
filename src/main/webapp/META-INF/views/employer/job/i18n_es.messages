@@ -1,6 +1,8 @@
 employer.job.list.label.reference= Referencia
 employer.job.list.label.deadline= Fecha Límite
 employer.job.list.label.title= Título
+employer.job.form.label.descriptorMessage= Obligaciones
+employer.job.form.label.createDuty= Crear Obligación
 
 employer.job.form.label.reference= Referencia:
 employer.job.form.label.deadline= Fecha Límite:
@@ -8,10 +10,22 @@ employer.job.form.label.title= Título:
 employer.job.form.label.salary= Salario:
 employer.job.form.label.moreInfo= Más Información:
 employer.job.form.label.status= Estado:
+employer.job.form.label.status.draft= Borrador
+employer.job.form.label.status.published= Publicado
 employer.job.form.label.description= Descripción:
+
+employer.job.form.button.create= Crear
+employer.job.form.button.update= Actualizar
+employer.job.form.button.delete= Eliminar
 employer.job.form.button.return= Volver
 
 employer.job.form.panel.descriptor= Descriptor
 employer.job.form.label.description= Descripción:
 employer.job.form.label.descriptorMessage= Obligaciones
 employer.job.form.label.auditRecords= Registros de Auditoría
+
+employer.job.error.referenceSpam= Contiene demasiadas palabras de spam en el campo 'referencia'.
+employer.job.error.titleSpam= Contiene demasiadas palabras de spam en el campo 'titulo'.
+employer.job.error.moreInfoSpam= Contiene demasiadas palabras de spam en el campo 'mas información'.
+employer.job.error.label.amountTime= Un Trabajo no puede guardarse como "Publicado" hasta que sus Obligaciones sumen el 100% de la carga de trabajo semanal.
+employer.job.error.label.applications= No se pudo eliminar el Trabajo porque tiene Solicitudes asociadas.

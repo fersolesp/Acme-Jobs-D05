@@ -8,5 +8,6 @@
 	<acme:form-textbox code="employer.duty.form.label.description" path="description"/>
 	<acme:form-textbox code="employer.duty.form.label.timeAmount" path="amountTime"/>
 	
+	<acme:form-submit test="${command == 'create'}" code="employer.duty.form.button.create" action="create?id=${descriptor.id}"/>
 	<acme:form-return code="employer.duty.form.button.return"/>
 </acme:form>

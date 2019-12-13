@@ -9,5 +9,5 @@
 </acme:list>
 
 <acme:form>
-	<acme:form-return code="employer.duty.list.button.return"/>
+	<acme:form-return code="employer.duty.form.button.return"/>
 </acme:form>
