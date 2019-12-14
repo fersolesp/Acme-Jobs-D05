@@ -162,7 +162,8 @@
 		var data = {	
 				datasets : [
 					{
-						backgroundColor:"rgba(74, 189, 172, 0.7)",
+						borderColor:"rgba(74, 189, 172, 0.7)",
+						backgroundColor:"rgba(255, 255, 255, 0)",
 						label:"<acme:message code='administrator.chart.form.label.acceptedPerDay'/>",
 						
 						data :[	<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
@@ -174,7 +175,8 @@
 					 	]
 					},
 					{
-						backgroundColor:"rgba(255, 102, 102,0.7)",
+						borderColor:"rgba(255, 102, 102,0.7)",
+						backgroundColor:"rgba(255, 255, 255, 0)",
 						label:"<acme:message code='administrator.chart.form.label.rejectedPerDay'/>",
 						
 						data :[	<jstl:forEach var="i" items="${rejectedApplicationsInFourWeeks}">
@@ -186,7 +188,8 @@
 					 	]
 					},
 					{
-						backgroundColor:"rgba(247, 183, 51, 0.7)",
+						borderColor:"rgba(247, 183, 51, 0.7)",
+						backgroundColor:"rgba(255, 255, 255, 0)",
 						label:"<acme:message code='administrator.chart.form.label.pendingPerDay'/>",
 						
 						data :[	<jstl:forEach var="i" items="${pendingApplicationsInFourWeeks}">
@@ -205,6 +208,9 @@
 		            xAxes: [{
 		                type: 'time',
 		                distribution: 'series',
+		                time:{
+		                	unit:'day'
+		                }
 		                
 		            }],
 		            yAxes : [

@@ -40,12 +40,12 @@ public interface AdministratorChartRepository extends AbstractRepository {
 
 	//D05
 
-	@Query("select a.creationMoment,count(a) from Application a where a.status=0 and 365*YEAR(current_time())+30*MONTH(current_time())+DAY(current_time())-365*YEAR(a.creationMoment)-30*MONTH(a.creationMoment)-DAY(a.creationMoment)<28 group by DAY(a.creationMoment) order by a.creationMoment asc")
+	@Query("select a.creationMoment,count(a) from Application a where a.status=0 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
 	Object[] findPendingAppsInFourWeeks();
 
-	@Query("select a.creationMoment,count(a) from Application a where a.status=1 and 365*YEAR(current_time())+30*MONTH(current_time())+DAY(current_time())-365*YEAR(a.creationMoment)-30*MONTH(a.creationMoment)-DAY(a.creationMoment)<28 group by DAY(a.creationMoment) order by a.creationMoment asc")
+	@Query("select a.creationMoment,count(a) from Application a where a.status=1 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
 	Object[] findAcceptedAppsInFourWeeks();
 
-	@Query("select a.creationMoment,count(a) from Application a where a.status=2 and 365*YEAR(current_time())+30*MONTH(current_time())+DAY(current_time())-365*YEAR(a.creationMoment)-30*MONTH(a.creationMoment)-DAY(a.creationMoment)<28 group by DAY(a.creationMoment) order by a.creationMoment asc")
+	@Query("select a.creationMoment,count(a) from Application a where a.status=2 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
 	Object[] findRejectedAppsInFourWeeks();
 }

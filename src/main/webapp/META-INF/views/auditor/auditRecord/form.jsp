@@ -3,10 +3,11 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form>
+<acme:form readonly="${status=='PUBLISHED'}">
 	<acme:form-textbox code="auditor.auditRecord.form.label.title" path="title"/>
 	
 	<acme:form-hidden path="job.id"/>
+
 	
 	<jstl:if test="${command != 'create'}">
 	<acme:form-select code="auditor.auditRecord.form.label.status" path="status">
@@ -24,7 +25,15 @@
 	
 	<acme:form-submit test="${command == 'show'}" code="administrator.announcement.form.button.update"
 	action="update"/>
-	<acme:form-submit test="${command=='create'}" code="auditor.auditRecord.form.button.create" action="create?id=${job.id}"/>
+	
+	<jstl:if test="${id==0}">
+		<acme:form-submit test="${command=='create'}" code="auditor.auditRecord.form.button.create" action="create?id=${job.id}"/>
+	</jstl:if>
+	
+	<jstl:if test="${id!=0}">
+		<acme:form-submit test="${command=='create'}" code="auditor.auditRecord.form.button.create" action="create?id=${id}"/>
+	</jstl:if>
+	
 	<acme:form-submit test="${command=='update'}" code="auditor.auditRecord.form.button.update" action="update"/>
 	<acme:form-return code="auditor.auditRecord.form.button.return"/>
 </acme:form>

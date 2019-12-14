@@ -564,14 +564,14 @@
     	<property name="title" value="Title 5"/>
     	<property name="deadline" value="2035/12/11 23:59"/>
     	<property name="salary" value="€ 20,000.98"/>
-    	<property name="status" value="DRAFT"/>
+    	<property name="status" value="PUBLISHED"/>
     	<property name="employer" ref="employer1Employer"/>
     	<property name="descriptor" ref="descriptor5"/>
     </bean>
     
     <bean name="job6" class="acme.entities.jobs.Job">
     	<property name="reference" value="EMP2-JOB3"/>
-    	<property name="title" value="Title 5"/>
+    	<property name="title" value="Title 6"/>
     	<property name="deadline" value="2035/12/11 23:59"/>
     	<property name="salary" value="€ 20,000.98"/>
     	<property name="status" value="DRAFT"/>
@@ -581,20 +581,20 @@
     
     <bean name="job7" class="acme.entities.jobs.Job">
     	<property name="reference" value="EMP1-JOB4"/>
-    	<property name="title" value="Title 5"/>
+    	<property name="title" value="Title 7"/>
     	<property name="deadline" value="2035/12/11 23:59"/>
     	<property name="salary" value="€ 20,000.98"/>
-    	<property name="status" value="DRAFT"/>
+    	<property name="status" value="PUBLISHED"/>
     	<property name="employer" ref="employer1Employer"/>
     	<property name="descriptor" ref="descriptor7"/>
     </bean>
     
     <bean name="job8" class="acme.entities.jobs.Job">
     	<property name="reference" value="EMP2-JOB4"/>
-    	<property name="title" value="Title 5"/>
+    	<property name="title" value="Title 8"/>
     	<property name="deadline" value="2035/12/11 23:59"/>
     	<property name="salary" value="€ 20,000.98"/>
-    	<property name="status" value="DRAFT"/>
+    	<property name="status" value="PUBLISHED"/>
     	<property name="employer" ref="employer2Employer"/>
     	<property name="descriptor" ref="descriptor8"/>
     </bean>
