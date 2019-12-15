@@ -1,0 +1,12 @@
+administrator.auditor-request.list.label.firm = Firm
+administrator.auditor-request.list.label.responsabilityStatement = Responsability Statement
+
+administrator.auditor-request.form.label.firm = Firm:
+administrator.auditor-request.form.label.responsabilityStatement = Responsability Statement:
+administrator.auditor-request.form.label.status = Status:
+administrator.auditor-request.form.label.status.pending = Pending
+administrator.auditor-request.form.label.status.accepted = Accepted
+administrator.auditor-request.form.label.status.rejected = Rejected
+
+administrator.auditor-request.form.button.update = Update
+administrator.auditor-request.form.button.return = Return

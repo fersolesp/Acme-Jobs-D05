@@ -1,12 +1,19 @@
 authenticated.message.list.label.title = Title
 authenticated.message.list.label.moment = Moment
 authenticated.message.list.label.author = Author
+authenticated.message.list.button.return= Return
 
 authenticated.message.form.label.moment = Moment:
 authenticated.message.form.label.title = Title:
 authenticated.message.form.label.tags = Tags:
 authenticated.message.form.label.body = Body:
 authenticated.message.form.label.author = Author:
+authenticated.messageThread.form.label.title = Title:
 
 authenticated.message.form.button.return = Return
-authenticated.message.list.button.return= Return
+authenticated.message.form.label.checkbox = Confirm
+authenticated.message.form.label.create = Create message
+authenticated.message.form.button.create = Create message
+
+authenticated.message.error.limiteSpam = You're over the limit allowed of spam words
+authenticated.message.error.label.confirm = You've to confirm

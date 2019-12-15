@@ -96,6 +96,7 @@ master.menu.administrator.non-commercial-banner.list = Administrar "Banners" No 
 master.menu.administrator.non-commercial-banner.create = Crear un "Banner" No Comercial
 master.menu.administrator.investor-records.create = Crear un Registro de Inversor
 master.menu.administrator.investor-records.list = Administrar Registros de Inversores
+master.menu.administrator.auditor.list = Listar las peticiones de los auditores
 
 # master.menu.provider ########################################################
 
@@ -132,6 +133,7 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.auditor = Solicitar ser auditor
 
 # master.footer ###############################################################
 

@@ -1,0 +1,13 @@
+authenticated.participant.list.label.username = User Name:
+authenticated.participant.list.label.title = Message Thread's Title:
+
+authenticated.participant.form.label.create = Create participant
+authenticated.participant.form.button.return = Return
+
+authenticated.participant.form.label.username = User Name:
+authenticated.participant.form.label.title = Message Thread's Title:
+authenticated.participant.form.button.create = Create participant
+authenticated.participant.form.button.delete = Delete participant
+
+authenticated.participant.error.invalidUsername = Wrong username
+authenticated.participant.error.duplicated = The participant is duplicated 

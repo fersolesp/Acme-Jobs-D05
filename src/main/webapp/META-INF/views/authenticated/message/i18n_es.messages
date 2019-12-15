@@ -1,12 +1,19 @@
 authenticated.message.list.label.title = Título
 authenticated.message.list.label.moment = Momento
 authenticated.message.list.label.author = Autor
+authenticated.message.list.button.return= Volver
 
 authenticated.message.form.label.moment = Momento:
 authenticated.message.form.label.title = Título:
 authenticated.message.form.label.tags = Etiquetas:
 authenticated.message.form.label.body = Contenido:
 authenticated.message.form.label.author = Autor:
+authenticated.messageThread.form.label.title = Titulo:
 
 authenticated.message.form.button.return = Volver
-authenticated.message.list.button.return= Volver
+authenticated.message.form.label.checkbox = Confirmar
+authenticated.message.form.label.create = Crear mensaje
+authenticated.message.form.button.create = Crear mensaje
+
+authenticated.message.error.limiteSpam = Has superado el límite permitido de palabras spam
+authenticated.message.error.label.confirm = Tienes que confirmar

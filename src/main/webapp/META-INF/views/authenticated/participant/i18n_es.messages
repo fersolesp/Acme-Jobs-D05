@@ -1,0 +1,12 @@
+authenticated.participant.list.label.username = Nombre de usuario:
+authenticated.participant.list.label.title = Título del hilo de mensajes:
+
+authenticated.participant.form.label.create = Crear participante
+authenticated.participant.form.button.return = Volver
+
+authenticated.participant.form.label.username = Nombre de usuario:
+authenticated.participant.form.label.title = Título del hilo de mensajes:
+authenticated.participant.form.button.create = Crear participante
+authenticated.participant.form.button.delete = Borrar participante
+
+authenticated.participant.error.invalidUsername = Nombre de usuario incorrecto

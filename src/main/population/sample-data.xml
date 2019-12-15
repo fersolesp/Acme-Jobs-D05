@@ -445,12 +445,7 @@
     <!-- CustomisationParameters -->
     
     <bean id="customisationParameters01" class="acme.entities.customisationParameters.CustomisationParameter">
-        <property name="spamWordList" value="sex, hard core, viagra, cialis, nigeria, you've won, million dollar"/>
-        <property name="spamThreshold" value="1.0"/>
-    </bean>
-    
-    <bean id="customisationParameters02" class="acme.entities.customisationParameters.CustomisationParameter">
-        <property name="spamWordList" value="sexo, explícito, viagra, cialis, nigeria, has ganado, un millón de dolares"/>
+        <property name="spamWordList" value="sex ,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,explícito,has ganado,un millón de dolares"/>
         <property name="spamThreshold" value="1.0"/>
     </bean>
     
@@ -669,7 +664,7 @@
     	</property>
     </bean>
     
-    
+
     
     <bean name="auditor1Auditor" class="acme.entities.roles.Auditor">
     	<property name="firm" value="firm 1"/>
@@ -748,6 +743,61 @@
     	<property name="moment" value="2019/05/20 12:00"/>
     </bean>
     
+    <!-- Participants -->
+    <bean name="participant1" class="acme.entities.participants.Participant">
+    	<property name="creator" value="true"/>
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="sponsor2Authenticated"/>
+    </bean>
+    
+    <bean name="participant2" class="acme.entities.participants.Participant">
+    	<property name="creator" value="true"/>
+        <property name="messageThread" ref="messageThread1"/>
+    	<property name="authenticated" ref="sponsor1Authenticated"/>
+    </bean> 
+    
+    <bean name="participant3" class="acme.entities.participants.Participant">
+    	<property name="creator" value="false"/>
+    	<property name="messageThread" ref="messageThread1"/>
+    	<property name="authenticated" ref="employer1Authenticated"/> 
+    </bean> 
+    
+    <bean name="participant4" class="acme.entities.participants.Participant">
+    	<property name="creator" value="false"/>
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="employer2Authenticated"/>
+    </bean> 
+    
+    <bean name="participant5" class="acme.entities.participants.Participant">
+    	<property name="creator" value="false"/>
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="employer1Authenticated"/>
+    </bean> 
+    
+    <bean name="participant6" class="acme.entities.participants.Participant">
+    	<property name="creator" value="false"/>
+    	<property name="messageThread" ref="messageThread1"/>
+    	<property name="authenticated" ref="auditor1Authenticated"/>
+    </bean> 
+    
+    <bean name="participant7" class="acme.entities.participants.Participant">
+    	<property name="creator" value="false"/>
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="auditor2Authenticated"/>
+    </bean> 
+    
+    <bean name="participant8" class="acme.entities.participants.Participant">
+    	<property name="creator" value="false"/>
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="worker1Authenticated"/>
+    </bean> 
+    
+    <bean name="participant9" class="acme.entities.participants.Participant">
+    	<property name="creator" value="false"/>
+    	<property name="messageThread" ref="messageThread1"/>
+    	<property name="authenticated" ref="worker2Authenticated"/>
+    </bean> 
+    
     <!-- Messages -->
     
     <bean name="message1" class="acme.entities.messages.Message">
@@ -755,17 +805,17 @@
     	<property name="moment" value="2019/04/20 12:00"/>
     	<property name="tags" value=""/>
     	<property name="body" value="Message 1's body!"/>
-    	<property name="messageThread" ref="messageThread1"/>
-    	<property name="authenticated" ref="employer1Authenticated"/>    	
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="sponsor2Authenticated"/>
     </bean>
-
+   
     <bean name="message2" class="acme.entities.messages.Message">
     	<property name="title" value="Message 2"/>
     	<property name="moment" value="2019/05/20 12:00"/>
     	<property name="tags" value="message, thread, trendy"/>
     	<property name="body" value="Message 2's body!"/>
-    	<property name="messageThread" ref="messageThread2"/>
-    	<property name="authenticated" ref="employer2Authenticated"/>
+        <property name="messageThread" ref="messageThread1"/>
+    	<property name="authenticated" ref="sponsor1Authenticated"/>
     </bean>
     
     <bean name="message3" class="acme.entities.messages.Message">
@@ -773,8 +823,8 @@
     	<property name="moment" value="2019/06/20 12:00"/>
     	<property name="tags" value=""/>
     	<property name="body" value="Message 3's body!"/>
-    	<property name="messageThread" ref="messageThread2"/>
-    	<property name="authenticated" ref="employer1Authenticated"/>
+    	<property name="messageThread" ref="messageThread1"/>
+    	<property name="authenticated" ref="employer1Authenticated"/> 
     </bean>
           
     <bean name="message4" class="acme.entities.messages.Message">
@@ -782,8 +832,8 @@
     	<property name="moment" value="2019/04/20 12:00"/>
     	<property name="tags" value="social, trendy"/>
     	<property name="body" value="Message 4's body!"/>
-    	<property name="messageThread" ref="messageThread1"/>
-    	<property name="authenticated" ref="employer1Authenticated"/>
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="employer2Authenticated"/>
     </bean>  
     
     <bean name="message5" class="acme.entities.messages.Message">
@@ -791,8 +841,8 @@
     	<property name="moment" value="2019/04/20 12:00"/>
     	<property name="tags" value="social, trendy"/>
     	<property name="body" value="Message 5's body!"/>
-    	<property name="messageThread" ref="messageThread1"/>
-    	<property name="authenticated" ref="auditor1Authenticated"/>
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="employer1Authenticated"/> 
     </bean> 
     
     <bean name="message6" class="acme.entities.messages.Message">
@@ -800,8 +850,8 @@
     	<property name="moment" value="2019/04/20 12:00"/>
     	<property name="tags" value="social, trendy"/>
     	<property name="body" value="Message 6's body!"/>
-    	<property name="messageThread" ref="messageThread2"/>
-    	<property name="authenticated" ref="auditor2Authenticated"/>
+    	<property name="messageThread" ref="messageThread1"/>
+    	<property name="authenticated" ref="auditor1Authenticated"/>
     </bean>  
     
     <bean name="message7" class="acme.entities.messages.Message">
@@ -810,7 +860,7 @@
     	<property name="tags" value="social, trendy"/>
     	<property name="body" value="Message 7's body!"/>
     	<property name="messageThread" ref="messageThread2"/>
-    	<property name="authenticated" ref="worker1Authenticated"/>
+    	<property name="authenticated" ref="auditor2Authenticated"/>
     </bean>  
     
      <bean name="message8" class="acme.entities.messages.Message">
@@ -818,8 +868,8 @@
     	<property name="moment" value="2019/04/20 12:00"/>
     	<property name="tags" value="social, trendy"/>
     	<property name="body" value="Message 8's body!"/>
-    	<property name="messageThread" ref="messageThread1"/>
-    	<property name="authenticated" ref="worker2Authenticated"/>
+    	<property name="messageThread" ref="messageThread2"/>
+    	<property name="authenticated" ref="worker1Authenticated"/>
     </bean>  
     
     <bean name="message9" class="acme.entities.messages.Message">
@@ -828,7 +878,7 @@
     	<property name="tags" value="social, trendy"/>
     	<property name="body" value="Message 9's body!"/>
     	<property name="messageThread" ref="messageThread1"/>
-    	<property name="authenticated" ref="sponsor1Authenticated"/>
+    	<property name="authenticated" ref="worker2Authenticated"/>
     </bean> 
     
      <bean name="message10" class="acme.entities.messages.Message">
