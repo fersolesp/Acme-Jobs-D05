@@ -14,3 +14,5 @@ authenticated.job.form.button.return= Volver
 authenticated.job.form.label.descriptorMessage= Obligaciones
 authenticated.job.form.button.auditRecord= Registros de Auditoria
 authenticated.job.form.panel.descriptor= Descriptor
+
+authenticated.job.form.label.createpplication = Crear una aplicación

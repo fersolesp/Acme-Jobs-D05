@@ -27,7 +27,15 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 	public boolean authorise(final Request<Employer> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int numberOfEmployerRoles;
+		int userAccountId;
+
+		userAccountId = request.getPrincipal().getAccountId();
+		numberOfEmployerRoles = this.repository.findNumberOfEmployerRolesById(userAccountId);
+		result = numberOfEmployerRoles == 0;
+
+		return result;
 	}
 
 	@Override
