@@ -93,7 +93,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		boolean isEuro, positiveSalary, isSpamReference, isSpamTitle, isSpamMoreInfo, isPublish;
+		boolean isEuro, positiveSalary, isSpamReference, isSpamTitle, isPublish, isSpamDescription;
 		Date minimumDeadLine;
 		Calendar calendar;
 
@@ -108,17 +108,17 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		if (!errors.hasErrors("deadline")) {
 			calendar = new GregorianCalendar();
 			minimumDeadLine = calendar.getTime();
-			errors.state(request, entity.getDeadline().after(minimumDeadLine), "deadline", "consumer.offer.error.label.deadline");
+			errors.state(request, entity.getDeadline().after(minimumDeadLine), "deadline", "employer.job.error.label.deadline");
 		}
 
 		//---------SALARY---------------
 
 		if (!errors.hasErrors("salary")) {
 			isEuro = entity.getSalary().getCurrency().equals("EUR") || entity.getSalary().getCurrency().equals("€");
-			errors.state(request, isEuro, "salary", "consumer.offer.error.label.reward-currency");
+			errors.state(request, isEuro, "salary", "employer.job.error.label.salary-currency");
 
 			positiveSalary = entity.getSalary().getAmount() >= 0;
-			errors.state(request, positiveSalary, "salary", "consumer.offer.error.label.reward-amount");
+			errors.state(request, positiveSalary, "salary", "employer.job.error.label.salary-amount");
 		}
 
 		//-----------STATUS------------//
@@ -139,7 +139,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 
 			//-----------spam---------
 
-			if ((!errors.hasErrors("reference") || !errors.hasErrors("title") || !errors.hasErrors("moreInfo")) && isPublish) {
+			if (!errors.hasErrors("reference") && !errors.hasErrors("title") && !errors.hasErrors("descriptor.description") && isPublish) {
 
 				cp = new ArrayList<>(this.repository.findCustomisationParameters());
 				spamWordsEnglish = cp.get(0).getSpamWordList().split(",");
@@ -147,15 +147,15 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 				englishThreshold = cp.get(0).getSpamThreshold();
 				spanishThreshold = cp.get(1).getSpamThreshold();
 
-				String reference = entity.getReference().toLowerCase();
-				String title = entity.getTitle().toLowerCase();
-				String moreInfo = entity.getMoreInfo().toLowerCase();
+				String reference = request.getModel().getString("reference").toLowerCase();
+				String title = request.getModel().getString("title").toLowerCase();
+				String description = request.getModel().getString("descriptor.description").toLowerCase();
 				Integer numberOfEnglishSpamWordsReference = 0;
 				Integer numberOfSpanishSpamWordsReference = 0;
 				Integer numberOfEnglishSpamWordsTitle = 0;
 				Integer numberOfSpanishSpamWordsTitle = 0;
-				Integer numberOfEnglishSpamWordsMoreInfo = 0;
-				Integer numberOfSpanishSpamWordsMoreInfo = 0;
+				Integer numberOfEnglishSpamWordsDescription = 0;
+				Integer numberOfSpanishSpamWordsDescription = 0;
 
 				for (String word : spamWordsEnglish) {
 					if (reference.contains(word.trim())) {
@@ -164,8 +164,8 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 					if (title.contains(word.trim())) {
 						numberOfEnglishSpamWordsTitle++;
 					}
-					if (moreInfo.contains(word.trim())) {
-						numberOfEnglishSpamWordsMoreInfo++;
+					if (description.contains(word.trim())) {
+						numberOfEnglishSpamWordsDescription++;
 					}
 				}
 
@@ -176,17 +176,17 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 					if (title.contains(word.trim())) {
 						numberOfSpanishSpamWordsTitle++;
 					}
-					if (moreInfo.contains(word.trim())) {
-						numberOfSpanishSpamWordsMoreInfo++;
+					if (description.contains(word.trim())) {
+						numberOfSpanishSpamWordsDescription++;
 					}
 				}
 				isSpamReference = numberOfEnglishSpamWordsReference * 100 / reference.length() > englishThreshold || numberOfSpanishSpamWordsReference * 100 / reference.length() > spanishThreshold;
 				isSpamTitle = numberOfEnglishSpamWordsTitle * 100 / title.length() > englishThreshold || numberOfSpanishSpamWordsTitle * 100 / title.length() > spanishThreshold;
-				isSpamMoreInfo = numberOfEnglishSpamWordsMoreInfo * 100 / moreInfo.length() > englishThreshold || numberOfSpanishSpamWordsMoreInfo * 100 / moreInfo.length() > spanishThreshold;
+				isSpamDescription = numberOfEnglishSpamWordsDescription * 100 / description.length() > englishThreshold || numberOfSpanishSpamWordsDescription * 100 / description.length() > spanishThreshold;
 
-				errors.state(request, !isSpamReference, "status", "employer.job.error.referenceSpam" + "\n");
+				errors.state(request, !isSpamReference, "status", "employer.job.error.referenceSpam");
 				errors.state(request, !isSpamTitle, "status", "employer.job.error.titleSpam");
-				errors.state(request, !isSpamMoreInfo, "status", "employer.job.error.moreInfoSpam");
+				errors.state(request, !isSpamDescription, "status", "employer.job.error.descriptionSpam");
 			}
 		}
 	}

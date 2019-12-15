@@ -21,7 +21,7 @@
 	<acme:form-panel code="employer.job.form.panel.descriptor">
 		<acme:form-textbox code="employer.job.form.label.description" path="descriptor.description"/>
 	</acme:form-panel>
-
+	
 	<!-- BOTONES -->
 
 	<jstl:if test="${command == 'show'}">
@@ -29,16 +29,18 @@
 		class="btn btn-default">
 		<acme:message code="employer.job.form.label.descriptorMessage"/>
 	</button>
-	<button type="button" onclick="javascript: clearReturnUrl(); redirect('/employer/duty/create?id=${descriptor.id}')" 
-		class="btn btn-default">
-		<acme:message code="employer.job.form.label.createDuty"/>
-	</button>
+	<jstl:if test="${status == 'DRAFT'}">
+		<button type="button" onclick="javascript: clearReturnUrl(); redirect('/employer/duty/create?id=${descriptor.id}')" 
+			class="btn btn-default">
+			<acme:message code="employer.job.form.label.createDuty"/>
+		</button>
+	</jstl:if>
 	<button type="button" onclick="javascript: clearReturnUrl(); redirect('/employer/audit-record/list?id=${id}')" 
 		class="btn btn-default">
 		<acme:message code="employer.job.form.label.auditRecords"/>
 	</button>
 	</jstl:if>
-		
+	
 	<acme:form-submit test="${command == 'show' && status == 'DRAFT'}" code="employer.job.form.button.update" action="update"/>
 	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.delete" action="delete"/>
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="create"/>

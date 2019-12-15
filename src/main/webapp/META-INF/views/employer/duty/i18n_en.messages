@@ -6,4 +6,9 @@ employer.duty.form.label.description= Description:
 employer.duty.form.label.timeAmount= Time Amount(%):
 
 employer.duty.form.button.create= Create
+employer.duty.form.button.delete= Delete
 employer.duty.form.button.return= Return
+employer.duty.list.button.return= Return
+
+employer.duty.error.label.amountTime= Cannot create the duty because it exceeds the 100% of the weekly workload.
+employer.duty.error.label.jobPublished= Cannot delete a Duty of a published Job.

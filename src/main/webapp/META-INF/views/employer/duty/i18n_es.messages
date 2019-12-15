@@ -7,4 +7,9 @@ employer.duty.form.label.description= Descripción:
 employer.duty.form.label.timeAmount= Cantidad de tiempo(%):
 
 employer.duty.form.button.create= Crear
+employer.duty.form.button.delete= Eliminar
+employer.duty.form.button.return= Volver
 employer.duty.list.button.return= Volver
+
+employer.duty.error.label.amountTime= No se puede crear el deber porque excede el 100% de la carga de trabajo semanal.
+employer.duty.error.label.jobPublished= No se puede eliminar la Obligación de un Trabajo ya publicado.

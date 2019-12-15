@@ -6,10 +6,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.descriptors.Descriptor;
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Status;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -26,7 +28,14 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return true;
+
+		Integer descriptorId = request.getModel().getInteger("id");
+
+		Principal principal;
+		principal = request.getPrincipal();
+		Integer EmployerId = this.repository.findJobByDescriptorId(descriptorId);
+
+		return principal.getActiveRoleId() == EmployerId && this.repository.findJobStatusByDescriptorId(descriptorId) == Status.DRAFT;
 	}
 
 	@Override
@@ -64,6 +73,18 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		int descriptorId = request.getModel().getInteger("id");
+		int modelAmountTime = request.getModel().getInteger("amountTime");
+		int sumOfAmountTimes;
+
+		if (!errors.hasErrors("amountTime")) {
+			if (this.repository.findDutiesByDescriptorId(descriptorId).size() > 0) {
+				sumOfAmountTimes = this.repository.findSumOfAmountTimeByDescriptorId(descriptorId);
+				Boolean condition = modelAmountTime + sumOfAmountTimes <= 100;
+				errors.state(request, condition, "amountTime", "employer.duty.error.label.amountTime");
+			}
+		}
 	}
 
 	@Override

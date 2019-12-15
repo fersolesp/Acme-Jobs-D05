@@ -80,17 +80,17 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		if (!errors.hasErrors("deadline")) {
 			calendar = new GregorianCalendar();
 			minimumDeadLine = calendar.getTime();
-			errors.state(request, entity.getDeadline().after(minimumDeadLine), "deadline", "consumer.offer.error.label.deadline");
+			errors.state(request, entity.getDeadline().after(minimumDeadLine), "deadline", "employer.job.error.label.deadline");
 		}
 
 		//---------SALARY---------------
 
 		if (!errors.hasErrors("salary")) {
 			isEuro = entity.getSalary().getCurrency().equals("EUR") || entity.getSalary().getCurrency().equals("€");
-			errors.state(request, isEuro, "salary", "consumer.offer.error.label.reward-currency");
+			errors.state(request, isEuro, "salary", "employer.job.error.label.salary-currency");
 
 			positiveSalary = entity.getSalary().getAmount() >= 0;
-			errors.state(request, positiveSalary, "salary", "consumer.offer.error.label.reward-amount");
+			errors.state(request, positiveSalary, "salary", "employer.job.error.label.salary-amount");
 		}
 	}
 
