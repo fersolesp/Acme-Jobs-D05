@@ -7,6 +7,9 @@
 	<acme:form-textbox code="worker.application.form.label.referenceNumber" path="referenceNumber"/>
 	<acme:form-moment code="worker.application.form.label.creationMoment" path="creationMoment"/>
 	<acme:form-textbox code="worker.application.form.label.status" path="status"/>
+	<jstl:if test="${status!='PENDING'}">
+		<acme:form-textbox code="worker.application.form.label.justification" path="justification"/>
+	</jstl:if>
 	<acme:form-textarea code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
 	<acme:form-textarea code="worker.application.form.label.qualifications" path="qualifications"/>

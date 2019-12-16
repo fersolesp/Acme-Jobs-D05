@@ -9,6 +9,7 @@ worker.application.form.label.status = Estado de la Solicitud:
 worker.application.form.label.statement = Declaración:
 worker.application.form.label.skills = Habilidades:
 worker.application.form.label.qualifications = Cualificaciones:
+worker.application.form.label.justification = Justificación:
 
 worker.application.form.button.return = Volver
 worker.application.list.button.return = Volver
