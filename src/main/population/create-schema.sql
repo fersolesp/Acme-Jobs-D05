@@ -346,6 +346,7 @@ create index IDX2psiob2l625wbcjcq6rac7jxd on `company_record` (`sector`);
 create index IDX36h1dt0en369n8juiobgqd99n on `investor_records` (`stars`);
 create index IDXio7n08eb64cro3eomn61pxoev on `investor_records` (`work_sector`);
 create index IDXal59yunywnkwi09ps7jxpr18c on `job` (`deadline`, `status`);
+create index IDX8ix743uifflnrs9bupbn6y0h4 on `job` (`reference`);
 
     alter table `job` 
        add constraint UK_qpodqtu8nvqkof3olnqnqcv2l unique (`descriptor_id`);

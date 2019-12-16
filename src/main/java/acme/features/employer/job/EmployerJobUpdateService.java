@@ -102,8 +102,10 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		//--------REFERENCE--------------
 
 		if (!errors.hasErrors("reference")) {
-			isUnique = this.repository.findOneJobByReference(entity.getReference()) != null;
-			errors.state(request, !isUnique, "reference", "employer.job.error.label.unique");
+			if (!this.repository.findOneJobById(entity.getId()).getReference().equals(entity.getReference())) {
+				isUnique = this.repository.findOneJobByReference(request.getModel().getString("reference")) != null;
+				errors.state(request, !isUnique, "reference", "employer.job.error.label.unique");
+			}
 		}
 
 		//---------DEADLINE---------------

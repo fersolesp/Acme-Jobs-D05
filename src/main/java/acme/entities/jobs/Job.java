@@ -30,7 +30,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "deadline,status")
+	@Index(columnList = "deadline,status"), @Index(columnList = "reference")
 })
 public class Job extends DomainEntity {
 
