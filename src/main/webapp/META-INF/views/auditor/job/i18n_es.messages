@@ -11,4 +11,5 @@ auditor.job.form.label.status= Estado:
 
 auditor.job.form.button.auditRecord= Registros de Auditoría
 auditor.job.form.button.duty= Obligaciones
+auditor.job.form.button.auditRecord.create= Crear Registro de Auditoría
 auditor.job.form.button.return= Volver

@@ -11,4 +11,5 @@ auditor.job.form.label.status= Status:
 
 auditor.job.form.button.auditRecord= Audit Records
 auditor.job.form.button.duty= Duties
+auditor.job.form.button.auditRecord.create= Create Audit Record
 auditor.job.form.button.return= Return

@@ -29,12 +29,23 @@ public interface AdministratorChartRepository extends AbstractRepository {
 	@Query("select 1.0*count(j)/(select count(b) from Job b) from Job j where j.status=0")
 	Double findRatioDraftJob();
 
-	@Query("select 1.0*count(a)/(select count(b) from Application b) from Application a where a.status=2")
+	@Query("select 1.0*count(a)/(select count(b) from Application b) from Application a where a.status=0")
 	Double findRatioPendingApplications();
 
-	@Query("select 1.0*count(a)/(select count(b) from Application b) from Application a where a.status=0")
+	@Query("select 1.0*count(a)/(select count(b) from Application b) from Application a where a.status=2")
 	Double findRatioRejectedApplications();
 
 	@Query("select 1.0*count(a)/(select count(b) from Application b) from Application a where a.status=1")
 	Double findRatioAcceptedApplications();
+
+	//D05
+
+	@Query("select a.creationMoment,count(a) from Application a where a.status=0 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
+	Object[] findPendingAppsInFourWeeks();
+
+	@Query("select a.creationMoment,count(a) from Application a where a.status=1 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
+	Object[] findAcceptedAppsInFourWeeks();
+
+	@Query("select a.creationMoment,count(a) from Application a where a.status=2 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
+	Object[] findRejectedAppsInFourWeeks();
 }

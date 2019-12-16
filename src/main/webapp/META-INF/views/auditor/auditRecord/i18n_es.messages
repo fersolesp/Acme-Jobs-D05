@@ -8,4 +8,10 @@ auditor.auditRecord.form.label.moment= Momento:
 auditor.auditRecord.form.label.body= Cuerpo:
 auditor.auditRecord.form.label.auditor= Auditor:
 
+auditor.auditRecord.form.label.status.draft=DRAFT
+auditor.auditRecord.form.label.status.published=PUBLISHED
+
+auditor.auditRecord.form.button.create= Crear
+auditor.auditRecord.form.button.update= Actualizar
+
 auditor.auditRecord.form.button.return= Volver
