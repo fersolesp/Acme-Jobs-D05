@@ -1,9 +1,6 @@
 
 package acme.features.sponsor.commercialBanner;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,37 +61,30 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert errors != null;
 
-		boolean isSpam;
-		List<CustomisationParameter> cp;
-		String[] spamWordsEnglish, spamWordsSpanish;
-		Double englishThreshold, spanishThreshold;
+		CustomisationParameter cp = this.repository.findCustomisationParameters();
+		String[] listaCustomisationParameter;
+		Integer cuenta = 0;
+		Double limitePalabrasSpamPermitidas = Double.valueOf(entity.getSlogan().split(" ").length) * cp.getSpamThreshold() / 100.0;
 
 		if (!errors.hasErrors("slogan")) {
 
-			cp = new ArrayList<>(this.repository.findCustomisationParameters());
-			spamWordsEnglish = cp.get(0).getSpamWordList().split(",");
-			spamWordsSpanish = cp.get(1).getSpamWordList().split(",");
-			englishThreshold = cp.get(0).getSpamThreshold();
-			spanishThreshold = cp.get(1).getSpamThreshold();
+			listaCustomisationParameter = cp.getSpamWordList().split(",");
 
-			String slogan = entity.getSlogan().toLowerCase();
-			Integer numberOfEnglishSpamWords = 0;
-			Integer numberOfSpanishSpamWords = 0;
+			for (String s : listaCustomisationParameter) {
+				String mensajeParcial = entity.getSlogan().toLowerCase();
+				int indice = mensajeParcial.indexOf(s);
+				while (indice != -1) {
+					cuenta++;
+					mensajeParcial = mensajeParcial.substring(indice + 1);
+					indice = mensajeParcial.indexOf(s);
+				}
+				errors.state(request, cuenta <= limitePalabrasSpamPermitidas, "slogan", "sponsor.commercial-banner.error.spam");
 
-			for (String word : spamWordsEnglish) {
-				if (slogan.contains(word.trim())) {
-					numberOfEnglishSpamWords++;
+				if (cuenta > limitePalabrasSpamPermitidas) {
+					break;
 				}
 			}
 
-			for (String word : spamWordsSpanish) {
-				if (slogan.contains(word.trim())) {
-					numberOfSpanishSpamWords++;
-				}
-			}
-			isSpam = numberOfEnglishSpamWords * 100 / slogan.length() > englishThreshold || numberOfSpanishSpamWords * 100 / slogan.length() > spanishThreshold;
-
-			errors.state(request, !isSpam, "slogan", "sponsor.commercial-banner.error.spam");
 		}
 
 	}

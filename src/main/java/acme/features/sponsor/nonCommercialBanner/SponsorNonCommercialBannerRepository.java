@@ -21,7 +21,7 @@ public interface SponsorNonCommercialBannerRepository extends AbstractRepository
 	Collection<NonCommercialBanner> findManyBySponsorId(int sponsorId);
 
 	@Query("select cp from CustomisationParameter cp")
-	Collection<CustomisationParameter> findCustomisationParameters();
+	CustomisationParameter findCustomisationParameters();
 
 	@Query("select s from Sponsor s where s.id = ?1")
 	Sponsor getSponsorById(int activeRoleId);
