@@ -1,31 +1,43 @@
 
-package acme.features.administrator.nonCommercialBanner;
+package acme.features.sponsor.nonCommercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.customisationParameters.CustomisationParameter;
 import acme.entities.nonCommercialBanners.NonCommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
-import acme.framework.services.AbstractUpdateService;
+import acme.framework.entities.Principal;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class AdministratorNonCommercialBannerUpdateService implements AbstractUpdateService<Administrator, NonCommercialBanner> {
+public class SponsorNonCommercialBannerDeleteService implements AbstractDeleteService<Sponsor, NonCommercialBanner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AdministratorNonCommercialBannerRepository repository;
+	SponsorNonCommercialBannerRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int ncbId;
+		NonCommercialBanner ncb;
+		Sponsor sponsor;
+		Principal principal;
+
+		ncbId = request.getModel().getInteger("id");
+		ncb = this.repository.findOneNonCommercialBannerById(ncbId);
+		sponsor = ncb.getSponsor();
+		principal = request.getPrincipal();
+		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
@@ -35,6 +47,7 @@ public class AdministratorNonCommercialBannerUpdateService implements AbstractUp
 		assert errors != null;
 
 		request.bind(entity, errors);
+
 	}
 
 	@Override
@@ -55,7 +68,7 @@ public class AdministratorNonCommercialBannerUpdateService implements AbstractUp
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findOneNonCommercialBannerById(id);
 		return result;
 	}
 
@@ -65,39 +78,14 @@ public class AdministratorNonCommercialBannerUpdateService implements AbstractUp
 		assert entity != null;
 		assert errors != null;
 
-		CustomisationParameter cp = this.repository.findCustomisationParameters();
-		String[] listaCustomisationParameter;
-		Integer cuenta = 0;
-		Double limitePalabrasSpamPermitidas = Double.valueOf(entity.getSlogan().split(" ").length) * cp.getSpamThreshold() / 100.0;
-
-		if (!errors.hasErrors("slogan")) {
-
-			listaCustomisationParameter = cp.getSpamWordList().split(",");
-
-			for (String s : listaCustomisationParameter) {
-				String mensajeParcial = entity.getSlogan().toLowerCase();
-				int indice = mensajeParcial.indexOf(s);
-				while (indice != -1) {
-					cuenta++;
-					mensajeParcial = mensajeParcial.substring(indice + 1);
-					indice = mensajeParcial.indexOf(s);
-				}
-				errors.state(request, cuenta <= limitePalabrasSpamPermitidas, "slogan", "sponsor.commercial-banner.error.spam");
-
-				if (cuenta > limitePalabrasSpamPermitidas) {
-					break;
-				}
-			}
-
-		}
 	}
 
 	@Override
-	public void update(final Request<NonCommercialBanner> request, final NonCommercialBanner entity) {
+	public void delete(final Request<NonCommercialBanner> request, final NonCommercialBanner entity) {
 		assert request != null;
 		assert entity != null;
 
-		this.repository.save(entity);
+		this.repository.delete(entity);
 
 	}
 }

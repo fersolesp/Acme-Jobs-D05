@@ -374,7 +374,7 @@
     
     <bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
     	<property name="organisationName" value="Sponsor 1, Inc."/>
-    	<property name="creditCard"><null/></property>
+    	<property name="creditCard" value=""/>
     	<property name="userAccount" ref="sponsor1UserAccount"/>
     </bean>
     
@@ -398,7 +398,7 @@
         <property name="slogan" value="Si quieres, puedes 02"/>
         <property name="targetURL" value="https://hackertyper.net/"/>
         <property name="creditCard" value="4188432169509768"/>
-        <property name="sponsor" ref="sponsor1Sponsor"/>
+        <property name="sponsor" ref="sponsor2Sponsor"/>
     </bean>
 
     <bean id="commercialBanner02" class="acme.entities.commercialBanners.CommercialBanner">
@@ -406,7 +406,7 @@
         <property name="slogan" value="Yo no soy tonto 02"/>
         <property name="targetURL" value="https://hackertyper.net/"/>
         <property name="creditCard" value="4909378937697948"/>
-        <property name="sponsor" ref="sponsor1Sponsor"/>
+        <property name="sponsor" ref="sponsor2Sponsor"/>
     </bean>
 
     <bean id="commercialBanner03" class="acme.entities.commercialBanners.CommercialBanner">
@@ -445,12 +445,7 @@
     <!-- CustomisationParameters -->
     
     <bean id="customisationParameters01" class="acme.entities.customisationParameters.CustomisationParameter">
-        <property name="spamWordList" value="sex, hard core, viagra, cialis, nigeria, you've won, million dollar"/>
-        <property name="spamThreshold" value="1.0"/>
-    </bean>
-    
-    <bean id="customisationParameters02" class="acme.entities.customisationParameters.CustomisationParameter">
-        <property name="spamWordList" value="sexo, explícito, viagra, cialis, nigeria, has ganado, un millón de dolares"/>
+        <property name="spamWordList" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,explícito,viagra,cialis,nigeria,has ganado,un millón de dolares"/>
         <property name="spamThreshold" value="1.0"/>
     </bean>
     

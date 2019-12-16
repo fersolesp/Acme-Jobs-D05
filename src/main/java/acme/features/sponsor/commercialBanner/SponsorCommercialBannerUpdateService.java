@@ -1,35 +1,48 @@
 
-package acme.features.administrator.nonCommercialBanner;
+package acme.features.sponsor.commercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.commercialBanners.CommercialBanner;
 import acme.entities.customisationParameters.CustomisationParameter;
-import acme.entities.nonCommercialBanners.NonCommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AdministratorNonCommercialBannerUpdateService implements AbstractUpdateService<Administrator, NonCommercialBanner> {
+public class SponsorCommercialBannerUpdateService implements AbstractUpdateService<Sponsor, CommercialBanner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AdministratorNonCommercialBannerRepository repository;
+	SponsorCommercialBannerRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<NonCommercialBanner> request) {
+	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int ncbId;
+		CommercialBanner ncb;
+		Sponsor sponsor;
+		Principal principal;
+
+		ncbId = request.getModel().getInteger("id");
+		ncb = this.repository.findOneCommercialBannerById(ncbId);
+		sponsor = ncb.getSponsor();
+		principal = request.getPrincipal();
+		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
-	public void bind(final Request<NonCommercialBanner> request, final NonCommercialBanner entity, final Errors errors) {
+	public void bind(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -38,29 +51,29 @@ public class AdministratorNonCommercialBannerUpdateService implements AbstractUp
 	}
 
 	@Override
-	public void unbind(final Request<NonCommercialBanner> request, final NonCommercialBanner entity, final Model model) {
+	public void unbind(final Request<CommercialBanner> request, final CommercialBanner entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "jingle");
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "creditCard");
 
 	}
 
 	@Override
-	public NonCommercialBanner findOne(final Request<NonCommercialBanner> request) {
+	public CommercialBanner findOne(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		NonCommercialBanner result;
+		CommercialBanner result;
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findOneCommercialBannerById(id);
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<NonCommercialBanner> request, final NonCommercialBanner entity, final Errors errors) {
+	public void validate(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -93,7 +106,7 @@ public class AdministratorNonCommercialBannerUpdateService implements AbstractUp
 	}
 
 	@Override
-	public void update(final Request<NonCommercialBanner> request, final NonCommercialBanner entity) {
+	public void update(final Request<CommercialBanner> request, final CommercialBanner entity) {
 		assert request != null;
 		assert entity != null;
 

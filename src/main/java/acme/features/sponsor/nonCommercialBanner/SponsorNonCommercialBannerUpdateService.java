@@ -1,31 +1,44 @@
 
-package acme.features.administrator.nonCommercialBanner;
+package acme.features.sponsor.nonCommercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.customisationParameters.CustomisationParameter;
 import acme.entities.nonCommercialBanners.NonCommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AdministratorNonCommercialBannerUpdateService implements AbstractUpdateService<Administrator, NonCommercialBanner> {
+public class SponsorNonCommercialBannerUpdateService implements AbstractUpdateService<Sponsor, NonCommercialBanner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AdministratorNonCommercialBannerRepository repository;
+	SponsorNonCommercialBannerRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int ncbId;
+		NonCommercialBanner ncb;
+		Sponsor sponsor;
+		Principal principal;
+
+		ncbId = request.getModel().getInteger("id");
+		ncb = this.repository.findOneNonCommercialBannerById(ncbId);
+		sponsor = ncb.getSponsor();
+		principal = request.getPrincipal();
+		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
@@ -55,7 +68,7 @@ public class AdministratorNonCommercialBannerUpdateService implements AbstractUp
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findOneNonCommercialBannerById(id);
 		return result;
 	}
 

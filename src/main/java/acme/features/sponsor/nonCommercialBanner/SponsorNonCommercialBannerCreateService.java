@@ -1,30 +1,28 @@
 
-package acme.features.administrator.nonCommercialBanner;
+package acme.features.sponsor.nonCommercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.customisationParameters.CustomisationParameter;
 import acme.entities.nonCommercialBanners.NonCommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
-import acme.framework.services.AbstractUpdateService;
+import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AdministratorNonCommercialBannerUpdateService implements AbstractUpdateService<Administrator, NonCommercialBanner> {
-
+public class SponsorNonCommercialBannerCreateService implements AbstractCreateService<Sponsor, NonCommercialBanner> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AdministratorNonCommercialBannerRepository repository;
+	SponsorNonCommercialBannerRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
-
 		return true;
 	}
 
@@ -44,18 +42,16 @@ public class AdministratorNonCommercialBannerUpdateService implements AbstractUp
 		assert model != null;
 
 		request.unbind(entity, model, "picture", "slogan", "targetURL", "jingle");
-
 	}
 
 	@Override
-	public NonCommercialBanner findOne(final Request<NonCommercialBanner> request) {
+	public NonCommercialBanner instantiate(final Request<NonCommercialBanner> request) {
 		assert request != null;
-
 		NonCommercialBanner result;
-		int id;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = new NonCommercialBanner();
+		result.setSponsor(this.repository.getSponsorById(request.getPrincipal().getActiveRoleId()));
+
 		return result;
 	}
 
@@ -90,10 +86,11 @@ public class AdministratorNonCommercialBannerUpdateService implements AbstractUp
 			}
 
 		}
+
 	}
 
 	@Override
-	public void update(final Request<NonCommercialBanner> request, final NonCommercialBanner entity) {
+	public void create(final Request<NonCommercialBanner> request, final NonCommercialBanner entity) {
 		assert request != null;
 		assert entity != null;
 

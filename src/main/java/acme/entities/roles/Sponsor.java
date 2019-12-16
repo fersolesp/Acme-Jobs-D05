@@ -4,8 +4,6 @@ package acme.entities.roles;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.CreditCardNumber;
-
 import acme.framework.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +18,5 @@ public class Sponsor extends UserRole {
 	@NotBlank
 	private String				organisationName;
 
-	@CreditCardNumber
 	private String				creditCard;
 }

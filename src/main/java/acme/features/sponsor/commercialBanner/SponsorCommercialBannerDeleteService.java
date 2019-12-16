@@ -1,31 +1,43 @@
 
-package acme.features.administrator.commercialBanner;
+package acme.features.sponsor.commercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.commercialBanners.CommercialBanner;
-import acme.entities.customisationParameters.CustomisationParameter;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
-import acme.framework.services.AbstractUpdateService;
+import acme.framework.entities.Principal;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class AdministratorCommercialBannerUpdateService implements AbstractUpdateService<Administrator, CommercialBanner> {
+public class SponsorCommercialBannerDeleteService implements AbstractDeleteService<Sponsor, CommercialBanner> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AdministratorCommercialBannerRepository repository;
+	SponsorCommercialBannerRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		boolean result;
+		int ncbId;
+		CommercialBanner ncb;
+		Sponsor sponsor;
+		Principal principal;
+
+		ncbId = request.getModel().getInteger("id");
+		ncb = this.repository.findOneCommercialBannerById(ncbId);
+		sponsor = ncb.getSponsor();
+		principal = request.getPrincipal();
+		result = sponsor.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
@@ -35,6 +47,7 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 		assert errors != null;
 
 		request.bind(entity, errors);
+
 	}
 
 	@Override
@@ -55,7 +68,7 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findOneCommercialBannerById(id);
 		return result;
 	}
 
@@ -65,39 +78,14 @@ public class AdministratorCommercialBannerUpdateService implements AbstractUpdat
 		assert entity != null;
 		assert errors != null;
 
-		CustomisationParameter cp = this.repository.findCustomisationParameters();
-		String[] listaCustomisationParameter;
-		Integer cuenta = 0;
-		Double limitePalabrasSpamPermitidas = Double.valueOf(entity.getSlogan().split(" ").length) * cp.getSpamThreshold() / 100.0;
-
-		if (!errors.hasErrors("slogan")) {
-
-			listaCustomisationParameter = cp.getSpamWordList().split(",");
-
-			for (String s : listaCustomisationParameter) {
-				String mensajeParcial = entity.getSlogan().toLowerCase();
-				int indice = mensajeParcial.indexOf(s);
-				while (indice != -1) {
-					cuenta++;
-					mensajeParcial = mensajeParcial.substring(indice + 1);
-					indice = mensajeParcial.indexOf(s);
-				}
-				errors.state(request, cuenta <= limitePalabrasSpamPermitidas, "slogan", "sponsor.commercial-banner.error.spam");
-
-				if (cuenta > limitePalabrasSpamPermitidas) {
-					break;
-				}
-			}
-
-		}
 	}
 
 	@Override
-	public void update(final Request<CommercialBanner> request, final CommercialBanner entity) {
+	public void delete(final Request<CommercialBanner> request, final CommercialBanner entity) {
 		assert request != null;
 		assert entity != null;
 
-		this.repository.save(entity);
+		this.repository.delete(entity);
 
 	}
 }

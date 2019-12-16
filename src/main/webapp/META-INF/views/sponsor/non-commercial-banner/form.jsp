@@ -9,5 +9,11 @@
 	<acme:form-url code="sponsor.non-commercial-banner.form.label.targetURL" path="targetURL"/>
 	<acme:form-url code="sponsor.non-commercial-banner.form.label.jingle" path="jingle"/>
 	
+	
+	<acme:form-submit test="${command == 'show'}" code="sponsor.non-commercial-banner.form.button.update" action="update"/>
+	<acme:form-submit test="${command == 'show'}" code="sponsor.non-commercial-banner.form.button.delete" action="delete"/>
+	<acme:form-submit test="${command == 'update'}" code="sponsor.non-commercial-banner.form.button.update" action="update"/>
+	<acme:form-submit test="${command == 'delete'}" code="sponsor.non-commercial-banner.form.button.delete" action="delete"/>
+	<acme:form-submit test="${command == 'create'}" code="sponsor.non-commercial-banner.form.button.create" action="create"/>
 	<acme:form-return code="sponsor.commercial-banner.form.button.return"/>
 </acme:form>
