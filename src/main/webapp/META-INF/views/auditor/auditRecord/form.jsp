@@ -23,7 +23,7 @@
 		<acme:form-textbox readonly="true" code="auditor.auditRecord.form.label.auditor" path="auditor.userAccount.username"/>
 	</jstl:if>
 	
-	<acme:form-submit test="${command == 'show'}" code="administrator.announcement.form.button.update"
+	<acme:form-submit test="${command == 'show' and status=='DRAFT'}" code="administrator.announcement.form.button.update"
 	action="update"/>
 	
 	<jstl:if test="${id==0}">
@@ -34,6 +34,6 @@
 		<acme:form-submit test="${command=='create'}" code="auditor.auditRecord.form.button.create" action="create?id=${id}"/>
 	</jstl:if>
 	
-	<acme:form-submit test="${command=='update'}" code="auditor.auditRecord.form.button.update" action="update"/>
+	<acme:form-submit test="${command=='update' and status=='DRAFT'}" code="auditor.auditRecord.form.button.update" action="update"/>
 	<acme:form-return code="auditor.auditRecord.form.button.return"/>
 </acme:form>
