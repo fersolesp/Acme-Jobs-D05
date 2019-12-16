@@ -3,7 +3,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form readonly="${status != 'PENDING'}">
+<acme:form readonly="${command == 'show' && status != 'PENDING'}">
 	<acme:form-textbox code="employer.application.form.label.referenceNumber" path="referenceNumber" readonly="true"/>
 	<acme:form-moment code="employer.application.form.label.creationMoment" path="creationMoment" readonly="true"/>
 	<acme:form-textarea code="employer.application.form.label.statement" path="statement" readonly="true"/>
@@ -26,7 +26,7 @@
 	</button>
 	
 	<acme:form-submit test="${command == 'show'}" code="employer.application.form.button.update" action="update"/>
-	<acme:form-submit test="${command == 'update'}" code="employer.application.form.button.update" action="update"/>
+	<acme:form-submit test="${command == 'update' && status != 'PENDING'}" code="employer.application.form.button.update" action="update"/>
 	<acme:form-return code="employer.application.form.button.return"/>
 </acme:form>
 

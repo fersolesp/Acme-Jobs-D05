@@ -682,7 +682,8 @@ Application
 + status: ApplicationStatus {NotNull}
 + statement: String {NotBlank}
 + skills: String {NotBlank}
-+ qualifications: String {NotBlank}</panel_attributes>
++ qualifications: String {NotBlank}
++ justification: String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

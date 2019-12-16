@@ -25,6 +25,7 @@ employer.job.form.label.descriptorMessage= Obligaciones
 employer.job.form.label.auditRecords= Registros de Auditoría
 
 employer.job.error.spam= Contiene demasiadas palabras de spam.
+employer.job.error.label.unique= La referencia introducida ya esta en uso.
 employer.job.error.label.amountTime= Un Trabajo no puede guardarse como "Publicado" hasta que sus Obligaciones sumen el 100% de la carga de trabajo semanal.
 employer.job.error.label.applications= No se pudo eliminar el Trabajo porque tiene Solicitudes asociadas.
 employer.job.error.label.deadline= La fecha límite debe estar en el futuro

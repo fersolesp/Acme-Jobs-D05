@@ -71,9 +71,16 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		boolean isEuro, positiveSalary;
+		boolean isUnique, isEuro, positiveSalary;
 		Date minimumDeadLine;
 		Calendar calendar;
+
+		//--------REFERENCE--------------
+
+		if (!errors.hasErrors("reference")) {
+			isUnique = this.repository.findOneJobByReference(entity.getReference()) != null;
+			errors.state(request, !isUnique, "reference", "employer.job.error.label.unique");
+		}
 
 		//---------DEADLINE---------------
 

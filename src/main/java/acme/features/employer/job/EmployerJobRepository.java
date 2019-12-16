@@ -41,4 +41,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select sum (d.amountTime) from Duty d where d.descriptor.id=?1")
 	int findSumOfAmountTimeByDescriptorId(int descriptorId);
 
+	@Query("select j from Job j where j.reference=?1")
+	Job findOneJobByReference(String reference);
+
 }

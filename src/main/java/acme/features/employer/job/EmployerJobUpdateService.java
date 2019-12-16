@@ -91,13 +91,20 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		boolean isEuro, positiveSalary, isPublish;
+		boolean isUnique, isEuro, positiveSalary, isPublish;
 		Date minimumDeadLine;
 		Calendar calendar;
 
 		int descriptorId = entity.getDescriptor().getId();
 
 		CustomisationParameter cp;
+
+		//--------REFERENCE--------------
+
+		if (!errors.hasErrors("reference")) {
+			isUnique = this.repository.findOneJobByReference(entity.getReference()) != null;
+			errors.state(request, !isUnique, "reference", "employer.job.error.label.unique");
+		}
 
 		//---------DEADLINE---------------
 
