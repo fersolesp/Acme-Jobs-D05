@@ -40,7 +40,7 @@ public class AuditorAuditRecordUpdateService implements AbstractUpdateService<Au
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "job.id");
+		request.bind(entity, errors, "moment");
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class AuditorAuditRecordUpdateService implements AbstractUpdateService<Au
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "body", "job.id", "moment", "auditor", "status");
+		request.unbind(entity, model, "title", "body", "job.id", "auditor", "status");
 	}
 
 	@Override
@@ -61,6 +61,7 @@ public class AuditorAuditRecordUpdateService implements AbstractUpdateService<Au
 
 		auditRecordId = request.getModel().getInteger("id");
 		auditRecord = this.repository.findOneAuditRecordById(auditRecordId);
+
 		return auditRecord;
 	}
 

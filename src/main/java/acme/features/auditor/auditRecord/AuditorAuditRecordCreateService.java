@@ -36,7 +36,7 @@ public class AuditorAuditRecordCreateService implements AbstractCreateService<Au
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "moment");
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class AuditorAuditRecordCreateService implements AbstractCreateService<Au
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "body", "job.id", "moment", "job", "auditor", "status");
+		request.unbind(entity, model, "title", "body", "job.id", "job", "auditor", "status");
 	}
 
 	@Override
