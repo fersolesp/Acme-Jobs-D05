@@ -445,12 +445,7 @@
     <!-- CustomisationParameters -->
     
     <bean id="customisationParameters01" class="acme.entities.customisationParameters.CustomisationParameter">
-        <property name="spamWordList" value="sex, hard core, viagra, cialis, nigeria, you've won, million dollar"/>
-        <property name="spamThreshold" value="1.0"/>
-    </bean>
-    
-    <bean id="customisationParameters02" class="acme.entities.customisationParameters.CustomisationParameter">
-        <property name="spamWordList" value="sexo, explícito, viagra, cialis, nigeria, has ganado, un millón de dolares"/>
+        <property name="spamWordList" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,explícito,viagra,cialis,nigeria,has ganado,un millón de dolares"/>
         <property name="spamThreshold" value="1.0"/>
     </bean>
     

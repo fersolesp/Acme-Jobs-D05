@@ -36,7 +36,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 	Collection<AuditRecord> findAuditRecordsByJobId(int jobId);
 
 	@Query("select cp from CustomisationParameter cp")
-	Collection<CustomisationParameter> findCustomisationParameters();
+	CustomisationParameter findCustomisationParameters();
 
 	@Query("select sum (d.amountTime) from Duty d where d.descriptor.id=?1")
 	int findSumOfAmountTimeByDescriptorId(int descriptorId);

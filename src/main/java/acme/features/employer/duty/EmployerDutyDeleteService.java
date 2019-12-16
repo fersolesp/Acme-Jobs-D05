@@ -25,12 +25,13 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 		assert request != null;
 
 		Integer dutyId = request.getModel().getInteger("id");
+		Integer descriptorId = request.getModel().getInteger("descriptor.id");
 
 		Principal principal;
 		principal = request.getPrincipal();
 		Integer EmployerId = this.repository.findJobByDutyId(dutyId);
 
-		return principal.getActiveRoleId() == EmployerId;
+		return principal.getActiveRoleId() == EmployerId && this.repository.findJobStatusByDescriptorId(descriptorId) == Status.DRAFT;
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "amountTime");
+		request.unbind(entity, model, "title", "description", "amountTime", "descriptor.id");
 	}
 
 	@Override

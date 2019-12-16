@@ -24,9 +24,7 @@ employer.job.form.label.description=Description:
 employer.job.form.label.descriptorMessage= Duties
 employer.job.form.label.auditRecords= Audit Records
 
-employer.job.error.referenceSpam= Contains too many spam words on reference's field.
-employer.job.error.titleSpam= Contains too many spam words on title's field.
-employer.job.error.descriptionSpam= Contains too many spam words on description's field.
+employer.job.error.spam= Contains too many spam words.
 employer.job.error.label.amountTime= A Job cannot be saved as "published" until the Duties doesn't sum up to 100% the weekly workload.
 employer.job.error.label.applications= Cannot delete the Job because it has associated applications.
 employer.job.error.label.deadline= The deadline must be in the future.

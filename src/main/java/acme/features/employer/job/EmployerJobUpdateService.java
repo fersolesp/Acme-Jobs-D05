@@ -1,11 +1,9 @@
 
 package acme.features.employer.job;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,15 +91,13 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		boolean isEuro, positiveSalary, isSpamReference, isSpamTitle, isPublish, isSpamDescription;
+		boolean isEuro, positiveSalary, isPublish;
 		Date minimumDeadLine;
 		Calendar calendar;
 
 		int descriptorId = entity.getDescriptor().getId();
 
-		List<CustomisationParameter> cp;
-		String[] spamWordsEnglish, spamWordsSpanish;
-		Double englishThreshold, spanishThreshold;
+		CustomisationParameter cp;
 
 		//---------DEADLINE---------------
 
@@ -141,52 +137,38 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 
 			if (!errors.hasErrors("reference") && !errors.hasErrors("title") && !errors.hasErrors("descriptor.description") && isPublish) {
 
-				cp = new ArrayList<>(this.repository.findCustomisationParameters());
-				spamWordsEnglish = cp.get(0).getSpamWordList().split(",");
-				spamWordsSpanish = cp.get(1).getSpamWordList().split(",");
-				englishThreshold = cp.get(0).getSpamThreshold();
-				spanishThreshold = cp.get(1).getSpamThreshold();
+				cp = this.repository.findCustomisationParameters();
+				String[] listaCustomisationParameter;
+				Integer cuentaT = 0, cuentaD = 0;
+				Double limitePalabrasSpamPermitidasTitle = Double.valueOf(entity.getTitle().split(" ").length) * cp.getSpamThreshold() / 100.0;
+				Double limitePalabrasSpamPermitidasDescription = Double.valueOf(entity.getDescriptor().getDescription().split(" ").length) * cp.getSpamThreshold() / 100.0;
 
-				String reference = request.getModel().getString("reference").toLowerCase();
-				String title = request.getModel().getString("title").toLowerCase();
-				String description = request.getModel().getString("descriptor.description").toLowerCase();
-				Integer numberOfEnglishSpamWordsReference = 0;
-				Integer numberOfSpanishSpamWordsReference = 0;
-				Integer numberOfEnglishSpamWordsTitle = 0;
-				Integer numberOfSpanishSpamWordsTitle = 0;
-				Integer numberOfEnglishSpamWordsDescription = 0;
-				Integer numberOfSpanishSpamWordsDescription = 0;
+				listaCustomisationParameter = cp.getSpamWordList().split(",");
 
-				for (String word : spamWordsEnglish) {
-					if (reference.contains(word.trim())) {
-						numberOfEnglishSpamWordsReference++;
+				for (String s : listaCustomisationParameter) {
+					String mensajeParcialTitle = entity.getTitle().toLowerCase();
+					String mensajeParcialDescription = entity.getDescriptor().getDescription().toLowerCase();
+
+					int indiceT = mensajeParcialTitle.indexOf(s);
+					int indiceD = mensajeParcialDescription.indexOf(s);
+
+					while (indiceT != -1) {
+						cuentaT++;
+						mensajeParcialTitle = mensajeParcialTitle.substring(indiceT + 1);
+						indiceT = mensajeParcialTitle.indexOf(s);
 					}
-					if (title.contains(word.trim())) {
-						numberOfEnglishSpamWordsTitle++;
+					while (indiceD != -1) {
+						cuentaD++;
+						mensajeParcialDescription = mensajeParcialDescription.substring(indiceD + 1);
+						indiceD = mensajeParcialDescription.indexOf(s);
 					}
-					if (description.contains(word.trim())) {
-						numberOfEnglishSpamWordsDescription++;
+					errors.state(request, cuentaT <= limitePalabrasSpamPermitidasTitle, "title", "employer.job.error.spam");
+					errors.state(request, cuentaD <= limitePalabrasSpamPermitidasDescription, "descriptor.description", "employer.job.error.spam");
+
+					if (cuentaT > limitePalabrasSpamPermitidasTitle || cuentaD > limitePalabrasSpamPermitidasDescription) {
+						break;
 					}
 				}
-
-				for (String word : spamWordsSpanish) {
-					if (reference.contains(word.trim())) {
-						numberOfSpanishSpamWordsReference++;
-					}
-					if (title.contains(word.trim())) {
-						numberOfSpanishSpamWordsTitle++;
-					}
-					if (description.contains(word.trim())) {
-						numberOfSpanishSpamWordsDescription++;
-					}
-				}
-				isSpamReference = numberOfEnglishSpamWordsReference * 100 / reference.length() > englishThreshold || numberOfSpanishSpamWordsReference * 100 / reference.length() > spanishThreshold;
-				isSpamTitle = numberOfEnglishSpamWordsTitle * 100 / title.length() > englishThreshold || numberOfSpanishSpamWordsTitle * 100 / title.length() > spanishThreshold;
-				isSpamDescription = numberOfEnglishSpamWordsDescription * 100 / description.length() > englishThreshold || numberOfSpanishSpamWordsDescription * 100 / description.length() > spanishThreshold;
-
-				errors.state(request, !isSpamReference, "status", "employer.job.error.referenceSpam");
-				errors.state(request, !isSpamTitle, "status", "employer.job.error.titleSpam");
-				errors.state(request, !isSpamDescription, "status", "employer.job.error.descriptionSpam");
 			}
 		}
 	}
