@@ -890,8 +890,8 @@
   	  	<bean name="duty5" class="acme.entities.duties.Duty">
   		<property name="title" value="Duty1"/>
   		<property name="description" value="This is a description"/>
-  		<property name="amountTime" value="30"/>
-  		<property name="descriptor" ref="descriptor1"/>
+  		<property name="amountTime" value="50"/>
+  		<property name="descriptor" ref="descriptor4"/>
   	</bean>
   	
   	  	<bean name="duty6" class="acme.entities.duties.Duty">
@@ -906,6 +906,13 @@
   		<property name="description" value="This is a description"/>
   		<property name="amountTime" value="50"/>
   		<property name="descriptor" ref="descriptor5"/>
+  	</bean>
+  	
+  	<bean name="duty8" class="acme.entities.duties.Duty">
+  		<property name="title" value="Duty8"/>
+  		<property name="description" value="This is a description"/>
+  		<property name="amountTime" value="90"/>
+  		<property name="descriptor" ref="descriptor2"/>
   	</bean>
 
       <!-- Applications -->
