@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.commercialBanners.CommercialBanner;
+import acme.entities.customisationParameters.CustomisationParameter;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -62,6 +63,31 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert entity != null;
 		assert errors != null;
 
+		CustomisationParameter cp = this.repository.findCustomisationParameters();
+		String[] listaCustomisationParameter;
+		Integer cuenta = 0;
+		Double limitePalabrasSpamPermitidas = Double.valueOf(entity.getSlogan().split(" ").length) * cp.getSpamThreshold() / 100.0;
+
+		if (!errors.hasErrors("slogan")) {
+
+			listaCustomisationParameter = cp.getSpamWordList().split(",");
+
+			for (String s : listaCustomisationParameter) {
+				String mensajeParcial = entity.getSlogan().toLowerCase();
+				int indice = mensajeParcial.indexOf(s);
+				while (indice != -1) {
+					cuenta++;
+					mensajeParcial = mensajeParcial.substring(indice + 1);
+					indice = mensajeParcial.indexOf(s);
+				}
+				errors.state(request, cuenta <= limitePalabrasSpamPermitidas, "slogan", "sponsor.commercial-banner.error.spam");
+
+				if (cuenta > limitePalabrasSpamPermitidas) {
+					break;
+				}
+			}
+
+		}
 	}
 
 	@Override

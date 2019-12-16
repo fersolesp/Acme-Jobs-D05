@@ -21,14 +21,12 @@ public class AdministratorNonCommercialBannerListService implements AbstractList
 
 	@Override
 	public boolean authorise(final Request<NonCommercialBanner> request) {
-		// TODO Auto-generated method stub
 		assert request != null;
 		return true;
 	}
 
 	@Override
 	public void unbind(final Request<NonCommercialBanner> request, final NonCommercialBanner entity, final Model model) {
-		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -39,7 +37,6 @@ public class AdministratorNonCommercialBannerListService implements AbstractList
 
 	@Override
 	public Collection<NonCommercialBanner> findMany(final Request<NonCommercialBanner> request) {
-		// TODO Auto-generated method stub
 		assert request != null;
 
 		Collection<NonCommercialBanner> result;
