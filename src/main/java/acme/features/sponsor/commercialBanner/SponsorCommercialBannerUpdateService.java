@@ -74,6 +74,10 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 
 	@Override
 	public void validate(final Request<CommercialBanner> request, final CommercialBanner entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
 		CustomisationParameter cp = this.repository.findCustomisationParameters();
 		String[] listaCustomisationParameter;
 		Integer cuenta = 0;

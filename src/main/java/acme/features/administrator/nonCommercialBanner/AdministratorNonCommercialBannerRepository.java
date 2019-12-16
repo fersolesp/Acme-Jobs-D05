@@ -20,5 +20,5 @@ public interface AdministratorNonCommercialBannerRepository extends AbstractRepo
 	Collection<NonCommercialBanner> findManyAll();
 
 	@Query("select cp from CustomisationParameter cp")
-	Collection<CustomisationParameter> findCustomisationParameters();
+	CustomisationParameter findCustomisationParameters();
 }
