@@ -1,12 +1,15 @@
 
 package acme.features.auditor.auditRecord;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditRecords.AuditRecord;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -30,8 +33,11 @@ public class AuditorAuditRecordUpdateService implements AbstractUpdateService<Au
 		int id = request.getModel().getInteger("id");
 		AuditRecord auditRecord = this.repository.findOneAuditRecordById(id);
 		Auditor auditor = auditRecord.getAuditor();
-
-		return principal.getActiveRoleId() == auditor.getId();
+		Job job = auditRecord.getJob();
+		Calendar calendar;
+		calendar = new GregorianCalendar();
+		Date time = calendar.getTime();
+		return principal.getActiveRoleId() == auditor.getId() && job.getDeadline().after(time);
 	}
 
 	@Override

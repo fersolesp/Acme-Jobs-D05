@@ -32,4 +32,6 @@ public class Chart implements Serializable {
 	Object[]					acceptedApplicationsInFourWeeks;
 	Object[]					rejectedApplicationsInFourWeeks;
 
+	String[]					zerosToActualDate;
+
 }

@@ -40,12 +40,12 @@ public interface AdministratorChartRepository extends AbstractRepository {
 
 	//D05
 
-	@Query("select a.creationMoment,count(a) from Application a where a.status=0 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
+	@Query("select DATE(a.creationMoment),count(a) from Application a where a.status=0 and a.creationMoment>=current_time()-28 group by DATE(a.creationMoment)")
 	Object[] findPendingAppsInFourWeeks();
 
-	@Query("select a.creationMoment,count(a) from Application a where a.status=1 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
+	@Query("select DATE(a.creationMoment),count(a) from Application a where a.status=1 and a.creationMoment>=current_time()-28 group by DATE(a.creationMoment)")
 	Object[] findAcceptedAppsInFourWeeks();
 
-	@Query("select a.creationMoment,count(a) from Application a where a.status=2 group by day(a.creationMoment) having a.creationMoment>=current_time()-28 order by a.creationMoment asc")
+	@Query("select DATE(a.creationMoment),count(a) from Application a where a.status=2 and a.creationMoment>=current_time()-28 group by DATE(a.creationMoment)")
 	Object[] findRejectedAppsInFourWeeks();
 }
