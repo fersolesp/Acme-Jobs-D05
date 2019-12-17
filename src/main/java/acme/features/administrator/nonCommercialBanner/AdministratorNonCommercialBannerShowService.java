@@ -19,7 +19,6 @@ public class AdministratorNonCommercialBannerShowService implements AbstractShow
 
 	@Override
 	public boolean authorise(final Request<NonCommercialBanner> request) {
-		// TODO Auto-generated method stub
 		assert request != null;
 
 		return true;
@@ -27,7 +26,6 @@ public class AdministratorNonCommercialBannerShowService implements AbstractShow
 
 	@Override
 	public void unbind(final Request<NonCommercialBanner> request, final NonCommercialBanner entity, final Model model) {
-		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -37,7 +35,6 @@ public class AdministratorNonCommercialBannerShowService implements AbstractShow
 
 	@Override
 	public NonCommercialBanner findOne(final Request<NonCommercialBanner> request) {
-		// TODO Auto-generated method stub
 		assert request != null;
 
 		NonCommercialBanner result;

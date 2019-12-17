@@ -19,6 +19,11 @@
             class="btn btn-default">
             <acme:message code="auditor.job.form.button.duty"/>
     </button>
+    
+	 <button type="button" onclick="javascript: clearReturnUrl(); redirect('/auditor/audit-record/create?id=${id}')"
+            class="btn btn-default">
+            <acme:message code="auditor.job.form.button.auditRecord.create"/>
+    </button>
 	
 	<acme:form-return code="auditor.job.form.button.return"/>
 </acme:form>

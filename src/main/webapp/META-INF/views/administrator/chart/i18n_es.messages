@@ -4,3 +4,7 @@ administrator.chart.form.label.companies= EMPRESAS
 administrator.chart.form.label.jobs= EMPLEOS
 administrator.chart.form.label.applications= SOLICITUDES
 administrator.chart.form.title.ratioByStatus= Ratio de Empleos y Solicitudes por Estado
+administrator.chart.form.label.rejectedPerDay= RECHAZADAS
+administrator.chart.form.label.pendingPerDay= PENDIENTES
+administrator.chart.form.label.acceptedPerDay= ACEPTADAS
+administrator.chart.form.title.applicationsPerDay= Número de Aplicaciones Perdidas, Aceptadas y Pendientes por Día

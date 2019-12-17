@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messages.Message;
+import acme.entities.participants.Participant;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -26,12 +27,12 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 		assert request != null;
 		boolean result;
 		int messageThreadId;
-		Integer messagesOfUserInThread;
+		Participant participant;
 		Principal principal = request.getPrincipal();
 
 		messageThreadId = request.getModel().getInteger("id");
-		messagesOfUserInThread = this.repository.findNumberOfMessagesOfUserInThread(messageThreadId, principal.getActiveRoleId());
-		result = messagesOfUserInThread > 0;
+		participant = this.repository.findParticipantInThread(messageThreadId, principal.getActiveRoleId());
+		result = participant != null;
 
 		return result;
 	}
@@ -50,10 +51,9 @@ public class AuthenticatedMessageListService implements AbstractListService<Auth
 		assert request != null;
 
 		Collection<Message> result;
-		Model model;
+		int messageThreadId = request.getModel().getInteger("id");
 
-		model = request.getModel();
-		result = this.repository.findManyMessagesByThreadId(model.getInteger("id"));
+		result = this.repository.findManyMessagesByThreadId(messageThreadId);
 
 		return result;
 	}

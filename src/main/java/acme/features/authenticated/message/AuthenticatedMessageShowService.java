@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messages.Message;
+import acme.entities.participants.Participant;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -22,13 +23,15 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
 		boolean result;
-		int messageId;
-		Integer messagesOfUserInThread;
+		int messageThreadId;
+		Participant participant;
 		Principal principal = request.getPrincipal();
+		Message messageToSee;
 
-		messageId = request.getModel().getInteger("id");
-		messagesOfUserInThread = this.repository.findNumberOfMessagesOfUserInThreadByMessageGiven(messageId, principal.getActiveRoleId());
-		result = messagesOfUserInThread > 0;
+		messageToSee = this.repository.findOneMessageById(request.getModel().getInteger("id"));
+		messageThreadId = messageToSee.getMessageThread().getId();
+		participant = this.repository.findParticipantInThread(messageThreadId, principal.getActiveRoleId());
+		result = participant != null;
 
 		return result;
 	}
@@ -39,7 +42,7 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment", "tags", "body", "authenticated.userAccount.username");
+		request.unbind(entity, model, "title", "moment", "tags", "body", "authenticated.userAccount.username", "messageThread.id", "messageThread.title");
 	}
 
 	@Override

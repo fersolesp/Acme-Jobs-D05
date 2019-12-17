@@ -12,6 +12,10 @@
 	<acme:message code="administrator.chart.form.title.ratioByStatus"/>
 </h2>
 	<canvas id="canvas2"></canvas>
+<h2>
+	<acme:message code="administrator.chart.form.title.applicationsPerDay"/>
+</h2>
+	<canvas id="canvas3"></canvas>	
 </div>
 		   		
 
@@ -144,6 +148,91 @@
 		
 		new Chart( context, {
 			type : "bar",
+			data : data,
+			options : options
+		});
+	});
+</script>
+
+<script type="text/javascript">
+
+
+
+	$(document).ready(function(){
+		var data = {	
+				datasets : [
+					{
+						borderColor:"rgba(74, 189, 172, 0.7)",
+						backgroundColor:"rgba(255, 255, 255, 0)",
+						label:"<acme:message code='administrator.chart.form.label.acceptedPerDay'/>",
+						
+						data :[	<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
+									{
+									t: new Date("<jstl:out value='${i[0]}'/>"),
+									y:<jstl:out value='${i[1]}'/>
+									},
+								</jstl:forEach>
+					 	]
+					},
+					{
+						borderColor:"rgba(255, 102, 102,0.7)",
+						backgroundColor:"rgba(255, 255, 255, 0)",
+						label:"<acme:message code='administrator.chart.form.label.rejectedPerDay'/>",
+						
+						data :[	<jstl:forEach var="i" items="${rejectedApplicationsInFourWeeks}">
+									{
+									t: new Date("<jstl:out value='${i[0]}'/>"),
+									y:<jstl:out value='${i[1]}'/>
+									},
+								</jstl:forEach>
+					 	]
+					},
+					{
+						borderColor:"rgba(247, 183, 51, 0.7)",
+						backgroundColor:"rgba(255, 255, 255, 0)",
+						label:"<acme:message code='administrator.chart.form.label.pendingPerDay'/>",
+						
+						data :[	<jstl:forEach var="i" items="${pendingApplicationsInFourWeeks}">
+									{
+									t: new Date("<jstl:out value='${i[0]}'/>"),
+									y:<jstl:out value='${i[1]}'/>
+									},
+								</jstl:forEach>
+					 	]
+					},					
+				]
+			};
+		
+		var options = {
+				scales: {
+		            xAxes: [{
+		                type: 'time',
+		                distribution: 'series',
+		                time:{
+		                	unit:'day'
+		                }
+		                
+		            }],
+		            yAxes : [
+						{
+							ticks : {
+								suggestedMin : 0.0,
+								suggestedMax : 1.0
+							}
+						}
+					]
+		        },
+			legend : {
+				display: true
+			}
+		};
+	
+		var canvas3, context;
+		canvas3=document.getElementById("canvas3");
+		context=canvas3.getContext("2d");
+		
+		new Chart( context, {
+			type : "line",
 			data : data,
 			options : options
 		});

@@ -28,7 +28,6 @@ public class SponsorNonCommercialBannerListMineService implements AbstractListSe
 
 	@Override
 	public void unbind(final Request<NonCommercialBanner> request, final NonCommercialBanner entity, final Model model) {
-		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert model != null;

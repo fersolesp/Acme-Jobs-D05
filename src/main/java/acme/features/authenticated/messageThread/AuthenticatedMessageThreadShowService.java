@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThreads.MessageThread;
+import acme.entities.participants.Participant;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -23,12 +24,15 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 		assert request != null;
 		boolean result;
 		int messageThreadId;
-		Integer messagesOfUserInThread;
+		Participant userParticipant;
 		Principal principal = request.getPrincipal();
 
 		messageThreadId = request.getModel().getInteger("id");
-		messagesOfUserInThread = this.repository.findNumberOfMessagesOfUserInThread(messageThreadId, principal.getActiveRoleId());
-		result = messagesOfUserInThread > 0;
+		userParticipant = this.repository.findParticipantInThread(messageThreadId, principal.getActiveRoleId());
+		result = userParticipant != null;
+		if (result) {
+			request.getServletRequest().setAttribute("creator", userParticipant.isCreator());
+		}
 
 		return result;
 	}
