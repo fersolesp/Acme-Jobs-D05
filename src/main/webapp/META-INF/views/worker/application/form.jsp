@@ -24,20 +24,15 @@
 		<acme:message code="worker.application.form.label.jobOf" />
 	</button>
 	</jstl:if>
-	
-	<jstl:if test="${botonVisible == 0}">
-			
-		<jstl:if test="${id==0}">
-			<acme:form-submit test="${command=='create'}" code="worker.application.form.button.create" action="create?id=${job.id}"/>
-		</jstl:if>
-	
-		<jstl:if test="${id!=0}">
-			<acme:form-submit test="${command=='create'}" code="worker.application.form.button.create" action="create?id=${id}"/>
-		</jstl:if>
-	
+				
+	<jstl:if test="${id==0}">
+		<acme:form-submit test="${command=='create'}" code="worker.application.form.button.create" action="create?id=${job.id}"/>
 	</jstl:if>
-	
-	
+
+	<jstl:if test="${id!=0}">
+		<acme:form-submit test="${command=='create'}" code="worker.application.form.button.create" action="create?id=${id}"/>
+	</jstl:if>
+
 	<acme:form-return code="worker.application.form.button.return"/>
 </acme:form>
 

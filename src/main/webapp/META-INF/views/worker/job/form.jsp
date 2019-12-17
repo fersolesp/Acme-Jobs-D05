@@ -25,10 +25,15 @@
 		<acme:message code="worker.job.form.label.AuditRecordMessage"/>
 	</button>
 	
+	<jstl:if test="${botonVisible == 0}">
+	
 	<button type="button" onclick="javascript: clearReturnUrl(); redirect('/worker/application/create?id=${id}')" 
 		class="btn btn-default">
 		<acme:message code="worker.job.form.label.createApplication"/>
 	</button>
+	
+	</jstl:if>
+	
 	
 	<acme:form-return code="worker.job.form.button.return"/>
 </acme:form>
