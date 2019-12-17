@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.customisationParameters.CustomisationParameter;
 import acme.entities.nonCommercialBanners.NonCommercialBanner;
 import acme.framework.repositories.AbstractRepository;
 
@@ -17,4 +18,7 @@ public interface AdministratorNonCommercialBannerRepository extends AbstractRepo
 
 	@Query("select a from NonCommercialBanner a")
 	Collection<NonCommercialBanner> findManyAll();
+
+	@Query("select cp from CustomisationParameter cp")
+	CustomisationParameter findCustomisationParameters();
 }

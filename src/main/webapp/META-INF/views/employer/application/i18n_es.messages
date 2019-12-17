@@ -6,11 +6,18 @@ employer.application.list.label.statement = Declaración
 employer.application.form.label.referenceNumber = Número de Referencia:
 employer.application.form.label.creationMoment = Momento de Creación:
 employer.application.form.label.status = Estado de la Solicitud:
+employer.application.form.label.status.pending = Pendiente
+employer.application.form.label.status.accepted = Aceptada
+employer.application.form.label.status.rejected = Rechazada
 employer.application.form.label.statement = Declaración:
 employer.application.form.label.skills = Habilidades:
 employer.application.form.label.qualifications = Cualificaciones:
+employer.application.form.label.justification= Justificación:
 
+employer.application.form.button.update = Actualizar
 employer.application.form.button.return = Volver
 employer.application.list.button.return = Volver
 
 employer.application.form.label.jobOf = Enlace al Trabajo correspondiente
+
+employer.application.error.label.justification= Debes escribir una justificación.

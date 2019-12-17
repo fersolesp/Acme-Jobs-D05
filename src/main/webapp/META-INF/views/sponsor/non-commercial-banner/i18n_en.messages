@@ -6,4 +6,11 @@ sponsor.non-commercial-banner.form.label.slogan= Slogan:
 sponsor.non-commercial-banner.form.label.targetURL= Target URL: 
 sponsor.non-commercial-banner.form.label.jingle= Jingle:
 
+sponsor.non-commercial-banner.form.button.return = Return
+sponsor.non-commercial-banner.form.button.create = Create
+sponsor.non-commercial-banner.form.button.update = Update
+sponsor.non-commercial-banner.form.button.delete = Delete
+
 sponsor.non-commercial-banner.form.button.return= Return
+
+sponsor.non-commercial-banner.error.spam = Contains too many spam words

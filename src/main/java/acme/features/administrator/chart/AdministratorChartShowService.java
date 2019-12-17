@@ -29,7 +29,8 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "CommonSectorsOfCompanies", "CommonSectorsOfInvestors", "investorSector", "companySector", "ratioPublishedJobs", "ratioDraftJobs", "ratioPendingApplications", "ratioAcceptedApplications", "ratioRejectedApplications");
+		request.unbind(entity, model, "CommonSectorsOfCompanies", "CommonSectorsOfInvestors", "investorSector", "companySector", "ratioPublishedJobs", "ratioDraftJobs", "ratioPendingApplications", "ratioAcceptedApplications", "ratioRejectedApplications",
+			"pendingApplicationsInFourWeeks", "acceptedApplicationsInFourWeeks", "rejectedApplicationsInFourWeeks");
 	}
 
 	@Override
@@ -47,6 +48,10 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		result.setRatioRejectedApplications(this.repository.findRatioRejectedApplications());
 		result.setRatioDraftJobs(this.repository.findRatioDraftJob());
 		result.setRatioPublishedJobs(this.repository.findRatioPublishedJob());
+
+		result.setAcceptedApplicationsInFourWeeks(this.repository.findAcceptedAppsInFourWeeks());
+		result.setPendingApplicationsInFourWeeks(this.repository.findPendingAppsInFourWeeks());
+		result.setRejectedApplicationsInFourWeeks(this.repository.findRejectedAppsInFourWeeks());
 
 		return result;
 	}

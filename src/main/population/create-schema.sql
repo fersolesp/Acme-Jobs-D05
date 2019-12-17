@@ -27,6 +27,7 @@
        `id` integer not null,
         `version` integer not null,
         `creation_moment` datetime(6),
+        `justification` varchar(255),
         `qualifications` varchar(255),
         `reference_number` varchar(255),
         `skills` varchar(255),
@@ -118,7 +119,7 @@
         `slogan` varchar(255),
         `targeturl` varchar(255),
         `credit_card` varchar(255),
-        `sponsor_id` integer not null,
+        `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -241,7 +242,7 @@
         `slogan` varchar(255),
         `targeturl` varchar(255),
         `jingle` varchar(255),
-        `sponsor_id` integer not null,
+        `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -364,6 +365,7 @@ create index IDX2psiob2l625wbcjcq6rac7jxd on `company_record` (`sector`);
 create index IDX36h1dt0en369n8juiobgqd99n on `investor_records` (`stars`);
 create index IDXio7n08eb64cro3eomn61pxoev on `investor_records` (`work_sector`);
 create index IDXal59yunywnkwi09ps7jxpr18c on `job` (`deadline`, `status`);
+create index IDX8ix743uifflnrs9bupbn6y0h4 on `job` (`reference`);
 
     alter table `job` 
        add constraint UK_qpodqtu8nvqkof3olnqnqcv2l unique (`descriptor_id`);

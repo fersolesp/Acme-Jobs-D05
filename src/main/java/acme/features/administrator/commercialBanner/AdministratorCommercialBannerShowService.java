@@ -19,7 +19,6 @@ public class AdministratorCommercialBannerShowService implements AbstractShowSer
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
-		// TODO Auto-generated method stub
 		assert request != null;
 
 		return true;
@@ -27,7 +26,6 @@ public class AdministratorCommercialBannerShowService implements AbstractShowSer
 
 	@Override
 	public void unbind(final Request<CommercialBanner> request, final CommercialBanner entity, final Model model) {
-		// TODO Auto-generated method stub
 		assert request != null;
 		assert entity != null;
 		assert model != null;
@@ -37,7 +35,6 @@ public class AdministratorCommercialBannerShowService implements AbstractShowSer
 
 	@Override
 	public CommercialBanner findOne(final Request<CommercialBanner> request) {
-		// TODO Auto-generated method stub
 		assert request != null;
 
 		CommercialBanner result;

@@ -7,5 +7,10 @@ auditor.auditRecord.form.label.status= Status:
 auditor.auditRecord.form.label.moment= Moment:
 auditor.auditRecord.form.label.body= Body:
 auditor.auditRecord.form.label.auditor= Auditor:
+auditor.auditRecord.form.label.status.draft=DRAFT
+auditor.auditRecord.form.label.status.published=PUBLISHED
+
+auditor.auditRecord.form.button.create=Create
+auditor.auditRecord.form.button.update=Update
 
 auditor.auditRecord.form.button.return= Return
