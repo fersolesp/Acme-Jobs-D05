@@ -3,6 +3,7 @@ package acme.entities.pradasBulletin;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +29,7 @@ public class PradasBulletin extends DomainEntity {
 	private String				person;
 
 	@NotBlank
+	@Column(length = 1024)
 	private String				information;
 
 	@Temporal(TemporalType.TIMESTAMP)

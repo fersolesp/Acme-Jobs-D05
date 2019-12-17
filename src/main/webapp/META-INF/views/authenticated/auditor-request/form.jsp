@@ -17,7 +17,7 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.auditor-request.form.label.firm" path="firm"/>
-	<acme:form-textbox code="authenticated.auditor-request.form.label.responsabilityStatement" path="responsabilityStatement"/>
+	<acme:form-textarea code="authenticated.auditor-request.form.label.responsabilityStatement" path="responsabilityStatement"/>
 	<acme:form-checkbox code="authenticated.auditor-request.form.label.checkbox" path="confirm"/>
 	 
 	<acme:form-submit test="${command=='create'}" code="authenticated.auditor-request.form.button.create" action="create"/>

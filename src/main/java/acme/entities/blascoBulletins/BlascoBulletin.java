@@ -3,6 +3,7 @@ package acme.entities.blascoBulletins;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,6 +30,7 @@ public class BlascoBulletin extends DomainEntity {
 	private String				userName;
 
 	@NotBlank
+	@Column(length = 1024)
 	private String				description;
 
 	@Temporal(TemporalType.TIMESTAMP)
