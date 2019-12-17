@@ -58,9 +58,13 @@ public class AuditorAuditRecordUpdateService implements AbstractUpdateService<Au
 
 		AuditRecord auditRecord;
 		int auditRecordId;
+		Date moment;
 
 		auditRecordId = request.getModel().getInteger("id");
 		auditRecord = this.repository.findOneAuditRecordById(auditRecordId);
+
+		moment = new Date(System.currentTimeMillis() - 1);
+		auditRecord.setMoment(moment);
 
 		return auditRecord;
 	}
