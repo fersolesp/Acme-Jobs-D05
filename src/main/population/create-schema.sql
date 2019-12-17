@@ -59,6 +59,16 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `auditor_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `firm` varchar(255),
+        `responsability_statement` varchar(255),
+        `status` integer,
+        `authenticated_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `authenticated` (
        `id` integer not null,
         `version` integer not null,
@@ -251,6 +261,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `participant` (
+       `id` integer not null,
+        `version` integer not null,
+        `creator` bit not null,
+        `authenticated_id` integer not null,
+        `message_thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `pradas_bulletin` (
        `id` integer not null,
         `version` integer not null,
@@ -400,6 +419,11 @@ create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `auditor_request` 
+       add constraint `FKjonb5lt00rmb868h6gjdjh1to` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
@@ -449,6 +473,16 @@ create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
        add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
+
+    alter table `participant` 
+       add constraint `FK80gruu22vbyiojed5sawtqc6a` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
+    alter table `participant` 
+       add constraint `FK162v6eiogk4jr8ykjoe80255x` 
+       foreign key (`message_thread_id`) 
+       references `message_thread` (`id`);
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 

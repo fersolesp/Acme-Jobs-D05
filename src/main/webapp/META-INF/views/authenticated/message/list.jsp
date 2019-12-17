@@ -10,5 +10,9 @@
 </acme:list>
 
 <acme:form>
+	<button type="button" onclick="javascript: clearReturnUrl(); redirect('/authenticated/message/create?messageThread.id=${param.id}')"
+	class="btn btn-default">
+		<acme:message code="authenticated.message.form.label.create" />
+	</button>
 	<acme:form-return code="authenticated.message.list.button.return"/>
 </acme:form>

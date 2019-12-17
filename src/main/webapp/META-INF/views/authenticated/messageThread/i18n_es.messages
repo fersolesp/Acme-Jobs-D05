@@ -1,5 +1,6 @@
 authenticated.messageThread.list.label.title = Título
 authenticated.messageThread.list.label.moment = Momento
+authenticated.message.list.button.return = Volver
 
 authenticated.messageThread.form.label.moment = Momento:
 authenticated.messageThread.form.label.title = Título:
@@ -7,4 +8,7 @@ authenticated.messageThread.form.label.title = Título:
 authenticated.messageThread.form.button.participants = Participantes
 authenticated.messageThread.form.button.messages = Mensajes
 authenticated.messageThread.form.button.return = Volver
+authenticated.messageThread.form.label.create = Crear hilo de mensajes
 
+authenticated.participant.error.invalidUsername = Nombre de usuario incorrecto
+authenticated.participant.error.duplicated = El participante está duplicado 

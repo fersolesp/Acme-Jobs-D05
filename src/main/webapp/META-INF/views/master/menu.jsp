@@ -74,7 +74,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.job.list" action="/authenticated/job/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.authenticated.messageThread.list" action="/authenticated/message-thread/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.messageThread.list" action="/authenticated/message-thread/list-mine"/>
 		</acme:menu-option>
 
     
@@ -105,6 +105,8 @@
 			<acme:menu-suboption code="master.menu.administrator.non-commercial-banner.create" action="/administrator/non-commercial-banner/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.customisationParameter.list" action="/administrator/customisation-parameter/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.auditor.list" action="/administrator/auditor-request/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.dashboard.listing" action="/administrator/dashboard/listing"/>
 			<acme:menu-suboption code="master.menu.administrator.chart" action="/administrator/chart/chart"/>
@@ -153,6 +155,7 @@
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor-request/create" access="!hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create" access="!hasRole('Sponsor')"/>
 			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" access="hasRole('Sponsor')"/>
 		</acme:menu-option>
