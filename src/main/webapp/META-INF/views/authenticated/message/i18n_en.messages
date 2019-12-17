@@ -15,5 +15,7 @@ authenticated.message.form.label.checkbox = Confirm
 authenticated.message.form.label.create = Create message
 authenticated.message.form.button.create = Create message
 
-authenticated.message.error.limiteSpam = You're over the limit allowed of spam words
+authenticated.message.error.limiteSpamTitle = You're over the limit allowed of spam words in title
+authenticated.message.error.limiteSpamTag = You're over the limit allowed of spam words in tag
+authenticated.message.error.limiteSpamBody = You're over the limit allowed of spam words in body
 authenticated.message.error.label.confirm = You've to confirm

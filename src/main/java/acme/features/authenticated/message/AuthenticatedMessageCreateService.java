@@ -31,6 +31,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		Participant participant;
 
 		participant = this.repository.findParticipantInThread(request.getModel().getInteger("messageThread.id"), request.getPrincipal().getActiveRoleId());
+
 		return participant != null;
 	}
 
@@ -83,28 +84,56 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 
 		CustomisationParameter cp = this.repository.findCustomisationParameter();
 		String[] listaCustomisationParameter;
-		Integer cuenta = 0;
+		Integer cuentaSpamTitle = 0;
+		Integer cuentaSpamTag = 0;
+		Integer cuentaSpamBody = 0;
 		Double limitePalabrasSpamPermitidas = Double.valueOf(entity.getBody().split(" ").length) * cp.getSpamThreshold() / 100.0;
 
 		listaCustomisationParameter = cp.getSpamWordList().split(",");
 
-		for (String s : listaCustomisationParameter) {
-			String mensajeParcial = entity.getBody();
-			int indice = mensajeParcial.indexOf(s);
-			while (indice != -1) {
-				cuenta++;
-				mensajeParcial = mensajeParcial.substring(indice + 1);
-				indice = mensajeParcial.indexOf(s);
-			}
-			errors.state(request, cuenta <= limitePalabrasSpamPermitidas, "body", "authenticated.message.error.limiteSpam");
-			if (cuenta > limitePalabrasSpamPermitidas) {
-				break;
+		if (!errors.hasErrors("title") || !errors.hasErrors("tags") || !errors.hasErrors("body")) {
+			for (String s : listaCustomisationParameter) {
+
+				String mensajeParcialTitle = entity.getTitle().toLowerCase();
+				int indiceTitle = mensajeParcialTitle.indexOf(s);
+
+				String mensajeParcialTag = entity.getTags().toLowerCase();
+				int indiceTag = mensajeParcialTag.indexOf(s);
+
+				String mensajeParcialBody = entity.getBody().toLowerCase();
+				int indice = mensajeParcialBody.indexOf(s);
+
+				while (indiceTitle != -1) {
+					cuentaSpamTitle++;
+					mensajeParcialTitle = mensajeParcialTitle.substring(indiceTitle + 1);
+					indiceTitle = mensajeParcialTitle.indexOf(s);
+				}
+
+				while (indiceTag != -1) {
+					cuentaSpamTag++;
+					mensajeParcialTag = mensajeParcialTag.substring(indiceTag + 1);
+					indiceTag = mensajeParcialTag.indexOf(s);
+				}
+
+				while (indice != -1) {
+					cuentaSpamBody++;
+					mensajeParcialBody = mensajeParcialBody.substring(indice + 1);
+					indice = mensajeParcialBody.indexOf(s);
+				}
+
+				errors.state(request, cuentaSpamTitle <= limitePalabrasSpamPermitidas, "title", "authenticated.message.error.limiteSpamTitle");
+				errors.state(request, cuentaSpamTag <= limitePalabrasSpamPermitidas, "tags", "authenticated.message.error.limiteSpamTag");
+				errors.state(request, cuentaSpamBody <= limitePalabrasSpamPermitidas, "body", "authenticated.message.error.limiteSpamBody");
+
+				if (cuentaSpamBody > limitePalabrasSpamPermitidas || cuentaSpamTag > limitePalabrasSpamPermitidas || cuentaSpamTitle > limitePalabrasSpamPermitidas) {
+					break;
+				}
 			}
 		}
-
 		boolean isConfirmed;
 		isConfirmed = request.getModel().getBoolean("confirm");
 		errors.state(request, isConfirmed, "confirm", "authenticated.message.error.label.confirm");
+
 	}
 
 	@Override

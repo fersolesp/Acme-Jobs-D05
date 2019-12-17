@@ -24,8 +24,8 @@ public class AuthenticatedParticipantListService implements AbstractListService<
 		assert request != null;
 
 		Participant participant;
-
 		participant = this.repository.findParticipantInThread(request.getModel().getInteger("id"), request.getPrincipal().getActiveRoleId());
+
 		return participant.isCreator();
 	}
 
