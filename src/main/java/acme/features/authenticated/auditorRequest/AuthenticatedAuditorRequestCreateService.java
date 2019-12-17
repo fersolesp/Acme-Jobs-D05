@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.auditorRequests.AuditorRequest;
 import acme.entities.auditorRequests.AuditorRequestStatus;
 import acme.framework.components.Errors;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -51,6 +52,12 @@ public class AuthenticatedAuditorRequestCreateService implements AbstractCreateS
 
 		request.unbind(entity, model, "firm", "responsabilityStatement", "status", "authenticated");
 
+		if (request.isMethod(HttpMethod.GET)) {
+			model.setAttribute("confirm", "false");
+		} else {
+			request.transfer(model, "confirm");
+		}
+
 	}
 
 	@Override
@@ -86,6 +93,10 @@ public class AuthenticatedAuditorRequestCreateService implements AbstractCreateS
 		userAccountId = principal.getAccountId();
 
 		errors.state(request, !(this.repository.numberOfAuditorRequestPendingByUserAccountId(userAccountId) > 0), "responsabilityStatement", "authenticated.auditor-request.error.pending");
+
+		boolean isConfirmed;
+		isConfirmed = request.getModel().getBoolean("confirm");
+		errors.state(request, isConfirmed, "confirm", "authenticated.auditorRequest.error.label.confirm");
 
 	}
 
