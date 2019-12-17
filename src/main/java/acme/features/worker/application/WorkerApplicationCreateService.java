@@ -1,7 +1,9 @@
 
 package acme.features.worker.application;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,13 +12,11 @@ import acme.entities.applications.Application;
 import acme.entities.applications.ApplicationStatus;
 import acme.entities.customisationParameters.CustomisationParameter;
 import acme.entities.jobs.Job;
+import acme.entities.jobs.Status;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
-import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.components.Response;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -30,14 +30,12 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		//		Integer id = request.getModel().getInteger("id");
-		//		Job job = this.repository.findOneJobById(id);
-		//		Calendar calendar = new GregorianCalendar();
-		//		Date minimumDeadLine = calendar.getTime();
+		Integer id = request.getModel().getInteger("id");
+		Job job = this.repository.findOneJobById(id);
+		Calendar calendar = new GregorianCalendar();
+		Date minimumDeadLine = calendar.getTime();
 
-		//		return job.getStatus().equals(Status.PUBLISHED) && job.getDeadline().after(minimumDeadLine);
-
-		return true;
+		return job.getStatus().equals(Status.PUBLISHED) && job.getDeadline().after(minimumDeadLine);
 
 	}
 
@@ -47,7 +45,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "creationMoment");
 	}
 
 	@Override
@@ -56,7 +54,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications");
+		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications", "job.id", "job");
 	}
 
 	@Override
@@ -72,6 +70,11 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		application.setWorker(this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId()));
 
+		Date creationMoment;
+
+		creationMoment = new Date(System.currentTimeMillis() - 1);
+		application.setCreationMoment(creationMoment);
+
 		return application;
 	}
 
@@ -86,7 +89,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 			int numberOfApplicationsByIds;
 			numberOfApplicationsByIds = this.repository.findApplicationByIds(request.getPrincipal().getActiveRoleId(), request.getModel().getInteger("id"));
 
-			errors.state(request, numberOfApplicationsByIds == 0, "qualifications", "worker.application.error.applicationRepetida");
+			errors.state(request, numberOfApplicationsByIds == 0, "qualifications", "worker.application.error.applicationRepeated");
 
 		}
 
@@ -128,15 +131,4 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		this.repository.save(entity);
 
 	}
-
-	@Override
-	public void onSuccess(final Request<Application> request, final Response<Application> response) {
-		assert request != null;
-		assert response != null;
-
-		if (request.isMethod(HttpMethod.POST)) {
-			PrincipalHelper.handleUpdate();
-		}
-	}
-
 }

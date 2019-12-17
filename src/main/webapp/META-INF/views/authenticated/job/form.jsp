@@ -25,11 +25,12 @@
             <acme:message code="authenticated.job.form.button.auditRecord"/>
     </button>
     
-   
-    <button type="button" onclick="javascript: clearReturnUrl(); redirect('/worker/application/create?id=${id}')"
-			class="btn btn-default">
-			<acme:message code="authenticated.job.form.label.createpplication" />
-	</button>
+   	<jstl:if test="hasRole('Worker')">
+	    <button type="button" onclick="javascript: clearReturnUrl(); redirect('/worker/application/create?id=${id}')"
+				class="btn btn-default">
+				<acme:message code="authenticated.job.form.label.createpplication" />
+		</button>
+	</jstl:if>
 	
 		
 	<acme:form-return code="authenticated.job.form.button.return"/>

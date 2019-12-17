@@ -4,6 +4,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form readonly = "${command != 'create'}" >
+
+	<acme:form-hidden path="job.id"/>
 	<acme:form-textbox code="worker.application.form.label.referenceNumber" path="referenceNumber"/>
 	<jstl:if test="${command == 'show'}">
 	<acme:form-moment code="worker.application.form.label.creationMoment" path="creationMoment" />
@@ -25,7 +27,13 @@
 	</button>
 	</jstl:if>
 	
-	<acme:form-submit test="${command == 'create'}" code="worker.application.form.button.create" action="create?id=${job.id}"/>
+	<jstl:if test="${id==0}">
+		<acme:form-submit test="${command=='create'}" code="worker.application.form.button.create" action="create?id=${job.id}"/>
+	</jstl:if>
+	
+	<jstl:if test="${id!=0}">
+		<acme:form-submit test="${command=='create'}" code="worker.application.form.button.create" action="create?id=${id}"/>
+	</jstl:if>
 	
 	
 	<acme:form-return code="worker.application.form.button.return"/>
