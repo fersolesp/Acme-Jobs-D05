@@ -11,7 +11,11 @@ worker.application.form.label.skills = Skills:
 worker.application.form.label.qualifications = Qualifications:
 worker.application.form.label.justification = Justification:
 
+worker.application.form.button.create = Create
 worker.application.form.button.return = Return
 worker.application.list.button.return = Return
 
 worker.application.form.label.jobOf = Link to the corresponding Job
+
+worker.application.error.spam = Statement contains some word not allowed
+worker.application.error.applicationRepeated = You are not allowed to apply more than once to a job
