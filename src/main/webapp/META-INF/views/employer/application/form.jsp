@@ -25,8 +25,8 @@
 		<acme:message code="employer.application.form.label.jobOf" />
 	</button>
 	
-	<acme:form-submit test="${command == 'show'}" code="employer.application.form.button.update" action="update"/>
-	<acme:form-submit test="${command == 'update' && status != 'PENDING'}" code="employer.application.form.button.update" action="update"/>
+	<acme:form-submit test="${command == 'show' && status == 'PENDING'}" code="employer.application.form.button.update" action="update"/>
+	<acme:form-submit test="${command == 'update'}" code="employer.application.form.button.update" action="update"/>
 	<acme:form-return code="employer.application.form.button.return"/>
 </acme:form>
 
