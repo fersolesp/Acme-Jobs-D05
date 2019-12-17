@@ -17,3 +17,5 @@ authenticated.auditor-request.form.button.create = Register
 authenticated.auditor-request.form.button.return = Return
 
 authenticated.auditor-request.error.pending = You already have a pending request to become Auditor
+authenticated.auditor-request.form.label.checkbox = I accept that this information can not be change once it´s approved
+authenticated.auditorRequest.error.label.confirm = You need to check the box to confirm the information you want to submit 
