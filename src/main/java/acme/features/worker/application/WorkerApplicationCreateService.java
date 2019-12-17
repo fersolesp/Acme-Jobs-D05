@@ -1,13 +1,13 @@
 
 package acme.features.worker.application;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.applications.ApplicationStatus;
 import acme.entities.customisationParameters.CustomisationParameter;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
@@ -19,6 +19,7 @@ import acme.framework.components.Response;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
+@Service
 public class WorkerApplicationCreateService implements AbstractCreateService<Worker, Application> {
 
 	@Autowired
@@ -29,25 +30,15 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		boolean result;
-		int applicationId;
-		Application application;
-		Worker worker;
-		int workerId;
-		Job job;
-		int jobId;
-		int numberOfApplicationsByIds;
+		//		Integer id = request.getModel().getInteger("id");
+		//		Job job = this.repository.findOneJobById(id);
+		//		Calendar calendar = new GregorianCalendar();
+		//		Date minimumDeadLine = calendar.getTime();
 
-		applicationId = request.getModel().getInteger("id");
-		application = this.repository.findOneApplicationById(applicationId);
-		worker = application.getWorker();
-		workerId = worker.getId();
-		job = application.getJob();
-		jobId = job.getId();
-		numberOfApplicationsByIds = this.repository.findApplicationByIds(workerId, jobId);
-		result = numberOfApplicationsByIds == 0;
+		//		return job.getStatus().equals(Status.PUBLISHED) && job.getDeadline().after(minimumDeadLine);
 
-		return result;
+		return true;
+
 	}
 
 	@Override
@@ -56,7 +47,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "creationMoment");
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -73,6 +64,13 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		Application application;
 		application = new Application();
+		application.setStatus(ApplicationStatus.PENDING);
+
+		Integer id = request.getModel().getInteger("id");
+		Job job = this.repository.findOneJobById(id);
+		application.setJob(job);
+
+		application.setWorker(this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId()));
 
 		return application;
 	}
@@ -83,28 +81,39 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		List<CustomisationParameter> cp;
-		String[] spamWords;
-		Double SpamThreshold;
+		if (!errors.hasErrors("qualifications")) {
+
+			int numberOfApplicationsByIds;
+			numberOfApplicationsByIds = this.repository.findApplicationByIds(request.getPrincipal().getActiveRoleId(), request.getModel().getInteger("id"));
+
+			errors.state(request, numberOfApplicationsByIds == 0, "qualifications", "worker.application.error.applicationRepetida");
+
+		}
+
+		CustomisationParameter cp = this.repository.findCustomisationParameters();
+		String[] listaCustomisationParameter;
+		Integer cuenta = 0;
+		Double limitePalabrasSpamPermitidas = Double.valueOf(entity.getStatement().split(" ").length) * cp.getSpamThreshold() / 100.0;
 
 		if (!errors.hasErrors("statement")) {
 
-			cp = new ArrayList<>(this.repository.findCustomisationParameters());
-			spamWords = cp.get(0).getSpamWordList().split(",");
-			SpamThreshold = cp.get(0).getSpamThreshold();
+			listaCustomisationParameter = cp.getSpamWordList().split(",");
 
-			String statement = entity.getStatement().toLowerCase();
-			Integer numberOfSpamWords = 0;
+			for (String s : listaCustomisationParameter) {
+				String mensajeParcial = entity.getStatement().toLowerCase();
+				int indice = mensajeParcial.indexOf(s);
+				while (indice != -1) {
+					cuenta++;
+					mensajeParcial = mensajeParcial.substring(indice + 1);
+					indice = mensajeParcial.indexOf(s);
+				}
+				errors.state(request, cuenta <= limitePalabrasSpamPermitidas, "statement", "worker.application.error.spam");
 
-			for (String word : spamWords) {
-				if (statement.contains(word.trim())) {
-					numberOfSpamWords++;
+				if (cuenta > limitePalabrasSpamPermitidas) {
+					break;
 				}
 			}
 
-			boolean isSpam = numberOfSpamWords * 100 / statement.length() > SpamThreshold;
-
-			errors.state(request, !isSpam, "statement", "worker.application.error.spam");
 		}
 
 	}

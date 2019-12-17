@@ -445,12 +445,7 @@
     <!-- CustomisationParameters -->
     
     <bean id="customisationParameters01" class="acme.entities.customisationParameters.CustomisationParameter">
-        <property name="spamWordList" value="sex, hard core, viagra, cialis, nigeria, you've won, million dollar"/>
-        <property name="spamThreshold" value="1.0"/>
-    </bean>
-    
-    <bean id="customisationParameters02" class="acme.entities.customisationParameters.CustomisationParameter">
-        <property name="spamWordList" value="sexo, explícito, viagra, cialis, nigeria, has ganado, un millón de dolares"/>
+        <property name="spamWordList" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,sexo,explícito,viagra,cialis,nigeria,has ganado,un millón de dolares"/>
         <property name="spamThreshold" value="1.0"/>
     </bean>
     
@@ -922,6 +917,7 @@
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Python, PHP"/>
     	<property name="qualifications" value="IIS"/>
+    	<property name="justification" value="You are the indicated person for this Job"/>
     	<property name="worker" ref="worker1Worker"/>
     	<property name="job" ref="job1"/>
     </bean>
@@ -933,6 +929,7 @@
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Java, JavaScript"/>
     	<property name="qualifications" value="IIS"/>
+    	<property name="justification" value="You are the indicated person for this Job"/>
     	<property name="worker" ref="worker2Worker"/>
     	<property name="job" ref="job2"/>
     </bean>
@@ -944,6 +941,7 @@
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Python, JavaScript"/>
     	<property name="qualifications" value="IIS"/>
+    	<property name="justification" value=""/>
     	<property name="worker" ref="worker1Worker"/>
     	<property name="job" ref="job2"/>
     </bean>
@@ -955,6 +953,7 @@
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Java, PHP"/>
     	<property name="qualifications" value="IIS"/>
+    	<property name="justification" value=""/>
     	<property name="worker" ref="worker2Worker"/>
     	<property name="job" ref="job4"/>
     </bean>
@@ -966,6 +965,7 @@
     	<property name="statement" value="I want to apply for this job"/>
     	<property name="skills" value="Java, JavaScript"/>
     	<property name="qualifications" value="IIS"/>
+    	<property name="justification" value="Your skills are not appropiated for this Job"/>
     	<property name="worker" ref="worker1Worker"/>
     	<property name="job" ref="job4"/>
     </bean>

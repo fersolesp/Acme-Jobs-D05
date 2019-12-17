@@ -27,6 +27,7 @@
        `id` integer not null,
         `version` integer not null,
         `creation_moment` datetime(6),
+        `justification` varchar(255),
         `qualifications` varchar(255),
         `reference_number` varchar(255),
         `skills` varchar(255),

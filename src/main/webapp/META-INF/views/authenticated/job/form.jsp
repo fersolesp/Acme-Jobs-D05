@@ -25,10 +25,12 @@
             <acme:message code="authenticated.job.form.button.auditRecord"/>
     </button>
     
-    <button type="button" onclick="javascript: clearReturnUrl(); redirect('/worker/application/create')"
+   
+    <button type="button" onclick="javascript: clearReturnUrl(); redirect('/worker/application/create?id=${id}')"
 			class="btn btn-default">
 			<acme:message code="authenticated.job.form.label.createpplication" />
 	</button>
+	
 		
 	<acme:form-return code="authenticated.job.form.button.return"/>
 </acme:form>
