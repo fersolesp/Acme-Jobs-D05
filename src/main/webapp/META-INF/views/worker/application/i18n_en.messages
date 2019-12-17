@@ -19,3 +19,4 @@ worker.application.form.label.jobOf = Link to the corresponding Job
 
 worker.application.error.spam = Statement contains some word not allowed
 worker.application.error.applicationRepeated = You are not allowed to apply more than once to a job
+worker.application.error.label.unique = The reference number you set is already in use

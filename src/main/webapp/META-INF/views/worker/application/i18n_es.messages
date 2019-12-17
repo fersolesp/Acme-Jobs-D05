@@ -19,3 +19,4 @@ worker.application.form.label.jobOf = Enlace al Trabajo correspondiente
 
 worker.application.error.spam = La declaración contiene alguna palabra no permitida
 worker.application.error.applicationRepeated = No se puede enviar más de una solicitud al mismo empleo
+worker.application.error.label.unique = El número de referencia introducido ya está en uso
