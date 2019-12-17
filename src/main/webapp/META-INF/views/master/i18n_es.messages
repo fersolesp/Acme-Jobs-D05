@@ -75,6 +75,7 @@ master.menu.authenticated.messageThread.list = Lista de Hilos de Mensajes
 
 master.menu.worker = Trabajador
 master.menu.worker.application.list = Lista de Solicitudes
+master.menu.worker.job.list = Lista de Trabajos
 
 # master.menu.administrator ###################################################
 

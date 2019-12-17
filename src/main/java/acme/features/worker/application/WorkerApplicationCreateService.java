@@ -70,9 +70,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		application.setWorker(this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId()));
 
-		Date creationMoment;
-
-		creationMoment = new Date(System.currentTimeMillis() - 1);
+		Date creationMoment = new Date(System.currentTimeMillis() - 1);
 		application.setCreationMoment(creationMoment);
 
 		return application;
@@ -83,6 +81,11 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		if (!errors.hasErrors("referenceNumber")) {
+			boolean isUnique = this.repository.findOneApplicationByReferenceNumber(entity.getReferenceNumber()) != null;
+			errors.state(request, !isUnique, "referenceNumber", "worker.application.error.label.unique");
+		}
 
 		if (!errors.hasErrors("qualifications")) {
 

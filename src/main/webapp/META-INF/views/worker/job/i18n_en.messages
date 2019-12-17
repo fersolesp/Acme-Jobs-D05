@@ -1,3 +1,7 @@
+worker.job.list.label.reference= Reference
+worker.job.list.label.deadline= Deadline
+worker.job.list.label.title= Title
+
 worker.job.form.label.reference= Reference:
 worker.job.form.label.deadline= Deadline:
 worker.job.form.label.title= Title:
@@ -11,3 +15,4 @@ worker.job.form.panel.descriptor=Descriptor
 worker.job.form.label.description=Description:
 worker.job.form.label.descriptorMessage= Duties
 worker.job.form.label.AuditRecordMessage= Audit Records
+worker.job.form.label.createApplication= Create application

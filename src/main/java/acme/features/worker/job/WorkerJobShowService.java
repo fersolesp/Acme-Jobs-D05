@@ -1,10 +1,15 @@
 
 package acme.features.worker.job;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
+import acme.entities.jobs.Status;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -25,7 +30,11 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		int workerId = request.getPrincipal().getActiveRoleId();
 		int numberApplications = this.repository.findApplicationsOfAJob(jobId, workerId);
 
-		return numberApplications > 0;
+		Job job = this.repository.findOneJobById(jobId);
+		Calendar calendar = new GregorianCalendar();
+		Date minimumDeadLine = calendar.getTime();
+
+		return numberApplications > 0 || job.getStatus() == Status.PUBLISHED && job.getDeadline().after(minimumDeadLine);
 	}
 
 	@Override
@@ -33,6 +42,10 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		int numberOfApplicationsByIds = this.repository.findApplicationByIds(request.getPrincipal().getActiveRoleId(), request.getModel().getInteger("id"));
+
+		model.setAttribute("botonVisible", numberOfApplicationsByIds);
 
 		request.unbind(entity, model, "reference", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "status", "descriptor.description", "descriptor", "id");
