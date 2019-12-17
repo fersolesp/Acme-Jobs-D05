@@ -166,12 +166,19 @@
 						backgroundColor:"rgba(255, 255, 255, 0)",
 						label:"<acme:message code='administrator.chart.form.label.acceptedPerDay'/>",
 						
-						data :[	<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
-									{
-									t: new Date("<jstl:out value='${i[0]}'/>"),
-									y:<jstl:out value='${i[1]}'/>
-									},
+						data :[	
+							<jstl:forEach var="e" items="${zerosToActualDate}">
+							<jstl:set var="valueDate" value="0"/>
+								{
+									t: new Date("<jstl:out value='${e}'/>"),
+								<jstl:forEach var="i" items="${acceptedApplicationsInFourWeeks}">
+									<jstl:if test="${e==i[0]}">
+										<jstl:set var="valueDate" value="${i[1]}"/>
+									</jstl:if>
 								</jstl:forEach>
+									y:<jstl:out value='${valueDate}'/>
+								},
+							</jstl:forEach>
 					 	]
 					},
 					{
@@ -179,12 +186,22 @@
 						backgroundColor:"rgba(255, 255, 255, 0)",
 						label:"<acme:message code='administrator.chart.form.label.rejectedPerDay'/>",
 						
-						data :[	<jstl:forEach var="i" items="${rejectedApplicationsInFourWeeks}">
-									{
-									t: new Date("<jstl:out value='${i[0]}'/>"),
-									y:<jstl:out value='${i[1]}'/>
-									},
-								</jstl:forEach>
+						data :[	
+							<jstl:forEach var="e" items="${zerosToActualDate}">
+							<jstl:set var="valueDate" value="0"/>
+							
+							{
+							t: new Date("<jstl:out value='${e}'/>"),
+							
+							<jstl:forEach var="i" items="${rejectedApplicationsInFourWeeks}">
+								<jstl:if test="${e==i[0]}">
+									<jstl:set var="valueDate" value="${i[1]}"/>
+								</jstl:if>
+							</jstl:forEach>
+							
+							y:<jstl:out value='${valueDate}'/>
+							},
+						</jstl:forEach>
 					 	]
 					},
 					{
@@ -192,12 +209,22 @@
 						backgroundColor:"rgba(255, 255, 255, 0)",
 						label:"<acme:message code='administrator.chart.form.label.pendingPerDay'/>",
 						
-						data :[	<jstl:forEach var="i" items="${pendingApplicationsInFourWeeks}">
-									{
-									t: new Date("<jstl:out value='${i[0]}'/>"),
-									y:<jstl:out value='${i[1]}'/>
-									},
-								</jstl:forEach>
+						data :[
+							<jstl:forEach var="e" items="${zerosToActualDate}">
+							<jstl:set var="valueDate" value="0"/>
+							
+							{
+							t: new Date("<jstl:out value='${e}'/>"),
+							
+							<jstl:forEach var="i" items="${pendingApplicationsInFourWeeks}">
+								<jstl:if test="${e==i[0]}">
+									<jstl:set var="valueDate" value="${i[1]}"/>
+								</jstl:if>
+							</jstl:forEach>
+							
+							y:<jstl:out value='${valueDate}'/>
+							},
+						</jstl:forEach>
 					 	]
 					},					
 				]

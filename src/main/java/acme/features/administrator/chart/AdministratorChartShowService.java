@@ -1,6 +1,10 @@
 
 package acme.features.administrator.chart;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +34,7 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		assert model != null;
 
 		request.unbind(entity, model, "CommonSectorsOfCompanies", "CommonSectorsOfInvestors", "investorSector", "companySector", "ratioPublishedJobs", "ratioDraftJobs", "ratioPendingApplications", "ratioAcceptedApplications", "ratioRejectedApplications",
-			"pendingApplicationsInFourWeeks", "acceptedApplicationsInFourWeeks", "rejectedApplicationsInFourWeeks");
+			"pendingApplicationsInFourWeeks", "acceptedApplicationsInFourWeeks", "rejectedApplicationsInFourWeeks", "zerosToActualDate");
 	}
 
 	@Override
@@ -52,6 +56,16 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		result.setAcceptedApplicationsInFourWeeks(this.repository.findAcceptedAppsInFourWeeks());
 		result.setPendingApplicationsInFourWeeks(this.repository.findPendingAppsInFourWeeks());
 		result.setRejectedApplicationsInFourWeeks(this.repository.findRejectedAppsInFourWeeks());
+
+		Calendar calendar = new GregorianCalendar();
+		String[] dates = new String[28];
+		for (int i = 0; i < 28; i++) {
+			SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd");
+			dates[i] = format.format(calendar.getTime());
+			calendar.add(Calendar.DAY_OF_MONTH, -1);
+		}
+
+		result.setZerosToActualDate(dates);
 
 		return result;
 	}
