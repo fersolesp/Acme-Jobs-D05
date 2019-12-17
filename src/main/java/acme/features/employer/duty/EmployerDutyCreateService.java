@@ -75,10 +75,10 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert errors != null;
 
 		int descriptorId = request.getModel().getInteger("id");
-		int modelAmountTime = request.getModel().getInteger("amountTime");
-		int sumOfAmountTimes;
 
 		if (!errors.hasErrors("amountTime")) {
+			int modelAmountTime = request.getModel().getInteger("amountTime");
+			int sumOfAmountTimes;
 			if (this.repository.findDutiesByDescriptorId(descriptorId).size() > 0) {
 				sumOfAmountTimes = this.repository.findSumOfAmountTimeByDescriptorId(descriptorId);
 				Boolean condition = modelAmountTime + sumOfAmountTimes <= 100;
