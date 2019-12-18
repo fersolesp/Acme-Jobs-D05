@@ -42,9 +42,13 @@
 	</jstl:if>
 	
 	<acme:form-submit test="${command == 'show' && status == 'DRAFT'}" code="employer.job.form.button.update" action="update"/>
-	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.delete" action="delete"/>
+	<acme:form-submit test="${command == 'show' && numberOfApplications == 0}" code="employer.job.form.button.delete" action="delete"/>
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="create"/>
 	<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update" action="update"/>
 	<acme:form-submit test="${command == 'delete'}" code="employer.job.form.button.delete" action="delete"/>
 	<acme:form-return code="employer.job.form.button.return"/>
+	
+	<jstl:if test="${command == 'show' && numberOfApplications != 0}">
+		<acme:message code="employer.job.form.label.cantDelete"/>
+	</jstl:if>
 </acme:form>

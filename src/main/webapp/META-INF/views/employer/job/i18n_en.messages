@@ -23,6 +23,7 @@ employer.job.form.panel.descriptor=Descriptor
 employer.job.form.label.description=Description:
 employer.job.form.label.descriptorMessage= Duties
 employer.job.form.label.auditRecords= Audit Records
+employer.job.form.label.cantDelete = You can't delete this job because it has applications to it
 
 employer.job.error.spam= Contains too many spam words.
 employer.job.error.label.unique= The reference you set is already in use.
