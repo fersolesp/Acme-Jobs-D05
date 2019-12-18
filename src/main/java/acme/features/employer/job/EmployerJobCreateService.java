@@ -71,7 +71,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		boolean isUnique, isEuro, positiveSalary;
+		boolean isUnique, isEuro;
 		Date minimumDeadLine;
 		Calendar calendar;
 
@@ -96,8 +96,6 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			isEuro = entity.getSalary().getCurrency().equals("EUR") || entity.getSalary().getCurrency().equals("€");
 			errors.state(request, isEuro, "salary", "employer.job.error.label.salary-currency");
 
-			positiveSalary = entity.getSalary().getAmount() >= 0;
-			errors.state(request, positiveSalary, "salary", "employer.job.error.label.salary-amount");
 		}
 	}
 
