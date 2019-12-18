@@ -74,8 +74,8 @@ master.menu.authenticated.messageThread.list = Lista de Hilos de Mensajes
 # master.menu.worker ###################################################
 
 master.menu.worker = Trabajador
-master.menu.worker.application.list = Lista de Solicitudes
-master.menu.worker.job.list = Lista de Trabajos
+master.menu.worker.application.list = Listar Solicitudes
+master.menu.worker.job.list = Listar Trabajos
 
 # master.menu.administrator ###################################################
 
@@ -112,7 +112,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.consumer.offer.create = Crear una Oferta
 
 # master.menu.employer ########################################################
-master.menu.employer= Empleado
+master.menu.employer= Empleador
 master.menu.employer.job.create= Crear un Trabajo
 master.menu.employer.job.list= Listar mis Trabajos
 master.menu.employer.application.list= Listar las Solicitudes de mis Trabajos
@@ -138,9 +138,9 @@ master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.become-employer = Hazte empleador
-master.menu.user-account.employer = Datos del empleador
+master.menu.user-account.employer = Datos de empleador
 master.menu.user-account.become-worker = Hazte trabajador
-master.menu.user-account.worker = Datos del trabajador
+master.menu.user-account.worker = Datos de trabajador
 master.menu.user-account.auditor = Solicitar ser auditor
 master.menu.user-account.sponsor = Datos de patrocinador
 master.menu.user-account.become-sponsor = Hazte patrocinador

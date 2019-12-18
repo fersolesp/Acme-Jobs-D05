@@ -74,8 +74,8 @@ master.menu.authenticated.messageThread.list = List Messages Threads
 # master.menu.worker ###################################################
 
 master.menu.worker = Worker
-master.menu.worker.application.list = List of Applications
-master.menu.worker.job.list = List of Jobs
+master.menu.worker.application.list = List Applications
+master.menu.worker.job.list = List Jobs
 
 # master.menu.administrator ###################################################
 

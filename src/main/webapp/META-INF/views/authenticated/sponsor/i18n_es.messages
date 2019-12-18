@@ -14,6 +14,6 @@ authenticated.sponsor.form.label.creditCard = Tarjeta de Crédito:
 aunthenticated.sponsor.error.creditCard = Formato de tarjeta de crédito inválido
 
 
-authenticated.sponsor.form.button.create = Register
-authenticated.sponsor.form.button.update = Update
-authenticated.sponsor.form.button.return = Return
+authenticated.sponsor.form.button.create = Registrar
+authenticated.sponsor.form.button.update = Actualizar
+authenticated.sponsor.form.button.return = Volver

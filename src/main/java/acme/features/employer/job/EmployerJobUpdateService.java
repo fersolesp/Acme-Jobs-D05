@@ -91,7 +91,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		boolean isUnique, isEuro, positiveSalary, isPublish;
+		boolean isUnique, isEuro, isPublish;
 		Date minimumDeadLine;
 		Calendar calendar;
 
@@ -122,8 +122,6 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			isEuro = entity.getSalary().getCurrency().equals("EUR") || entity.getSalary().getCurrency().equals("€");
 			errors.state(request, isEuro, "salary", "employer.job.error.label.salary-currency");
 
-			positiveSalary = entity.getSalary().getAmount() >= 0;
-			errors.state(request, positiveSalary, "salary", "employer.job.error.label.salary-amount");
 		}
 
 		//-----------STATUS------------//

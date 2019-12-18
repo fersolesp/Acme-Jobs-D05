@@ -30,4 +30,3 @@ employer.job.error.label.amountTime= Un Trabajo no puede guardarse como "Publica
 employer.job.error.label.applications= No se pudo eliminar el Trabajo porque tiene Solicitudes asociadas.
 employer.job.error.label.deadline= La fecha límite debe estar en el futuro
 employer.job.error.label.salary-currency= La moneda debe ser "EUR" o "€"
-employer.job.error.label.salary-amount= La cantidad debe ser mayor o igual a 0.
