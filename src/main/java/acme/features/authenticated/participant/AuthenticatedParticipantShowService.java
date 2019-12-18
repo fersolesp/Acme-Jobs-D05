@@ -37,6 +37,7 @@ public class AuthenticatedParticipantShowService implements AbstractShowService<
 		assert entity != null;
 		assert model != null;
 
+		model.setAttribute("isItMe", this.repository.findOneParticipantById(request.getModel().getInteger("id")).getAuthenticated().getId() == request.getPrincipal().getActiveRoleId());
 		request.unbind(entity, model, "creator", "authenticated.userAccount.username", "messageThread.title");
 	}
 

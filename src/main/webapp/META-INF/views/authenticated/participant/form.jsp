@@ -10,6 +10,6 @@
 	<acme:form-hidden path="messageThread.id"/>
 	
 	<acme:form-submit test="${command=='create'}" code="authenticated.participant.form.button.create" action="create"/>
-	<acme:form-submit test="${command!='create'}" code="authenticated.participant.form.button.delete" action="delete"/>
+	<acme:form-submit test="${command!='create' && isItMe == false}" code="authenticated.participant.form.button.delete" action="delete"/>
 	<acme:form-return code="authenticated.participant.form.button.return"/>
 </acme:form>
