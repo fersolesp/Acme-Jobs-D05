@@ -116,6 +116,9 @@ master.menu.employer= Employer
 master.menu.employer.job.create= Create a Job
 master.menu.employer.job.list= List my Jobs
 master.menu.employer.application.list= List Applications of my Jobs
+master.menu.employer.application.list.pending= List Pending Applications of my Jobs
+master.menu.employer.application.list.accepted= List Accepted Applications of my Jobs
+master.menu.employer.application.list.rejected= List Rejected Applications of my Jobs
 
 # master.menu.sponsor ########################################################
 master.menu.sponsor= Sponsor

@@ -116,6 +116,9 @@ master.menu.employer= Empleador
 master.menu.employer.job.create= Crear un Trabajo
 master.menu.employer.job.list= Listar mis Trabajos
 master.menu.employer.application.list= Listar las Solicitudes de mis Trabajos
+master.menu.employer.application.list.pending= Listar las Solicitudes Pendientes de mis Trabajos
+master.menu.employer.application.list.accepted= Listar las Solicitudes Aceptadas de mis Trabajos
+master.menu.employer.application.list.rejected= Listar las Solicitudes Rechazadas de mis Trabajos
 
 # master.menu.sponsor ########################################################
 master.menu.sponsor= Patrocinador

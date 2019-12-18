@@ -131,6 +131,11 @@
 			<acme:menu-suboption code="master.menu.employer.job.list" action="/employer/job/list-mine"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.employer.application.list" action="/employer/application/list-mine"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.employer.application.list.pending" action="/employer/application/list-status?stat=PENDING"/>
+			<acme:menu-suboption code="master.menu.employer.application.list.accepted" action="/employer/application/list-status?stat=ACCEPTED"/>
+			<acme:menu-suboption code="master.menu.employer.application.list.rejected" action="/employer/application/list-status?stat=REJECTED"/>
+			
 		</acme:menu-option>
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 			<acme:menu-suboption code="master.menu.sponsor.commercial-banner.list" action="/sponsor/commercial-banner/list-mine"/>
