@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
 import acme.framework.repositories.AbstractRepository;
 
 public interface WorkerDutyRepository extends AbstractRepository {
@@ -21,5 +22,8 @@ public interface WorkerDutyRepository extends AbstractRepository {
 
 	@Query("select count(a) from Application a where a.job.descriptor.id=(select d.descriptor.id from Duty d where d.id=?1) and a.worker.id=?2")
 	int findApplicationsOfADuty(int dutyId, int workerId);
+
+	@Query("select j from Job j where j.descriptor.id=?1")
+	Job findOneJobById(int descriptorId);
 
 }

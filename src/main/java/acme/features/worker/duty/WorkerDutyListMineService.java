@@ -1,12 +1,17 @@
 
 package acme.features.worker.duty;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
+import acme.entities.jobs.Status;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -27,7 +32,11 @@ public class WorkerDutyListMineService implements AbstractListService<Worker, Du
 		int idDescriptor = request.getModel().getInteger("id");
 		int ar = this.repository.findApplicationsOfAJob(idDescriptor, idWorker);
 
-		return ar > 0;
+		Job job = this.repository.findOneJobById(idDescriptor);
+		Calendar calendar = new GregorianCalendar();
+		Date minimumDeadLine = calendar.getTime();
+
+		return ar > 0 || job.getStatus() == Status.PUBLISHED && job.getDeadline().after(minimumDeadLine);
 	}
 
 	@Override

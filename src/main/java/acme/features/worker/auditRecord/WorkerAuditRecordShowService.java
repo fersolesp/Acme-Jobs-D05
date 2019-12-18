@@ -1,10 +1,15 @@
 
 package acme.features.worker.auditRecord;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditRecords.AuditRecord;
+import acme.entities.jobs.Status;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -24,8 +29,15 @@ public class WorkerAuditRecordShowService implements AbstractShowService<Worker,
 		int idWorker = request.getPrincipal().getActiveRoleId();
 		int auditRecordId = request.getModel().getInteger("id");
 
-		int ar = this.repository.findApplicationsOfAJobAppliedByAuditRecordId(idWorker, auditRecordId);
-		return ar > 0;
+		int numberAr = this.repository.findApplicationsOfAJobAppliedByAuditRecordId(idWorker, auditRecordId);
+
+		AuditRecord ar = this.repository.findOneAuditRecordById(auditRecordId);
+
+		Calendar calendar = new GregorianCalendar();
+		Date minimumDeadLine = calendar.getTime();
+
+		return numberAr > 0 || ar.getStatus() == Status.PUBLISHED && ar.getJob().getDeadline().after(minimumDeadLine);
+
 	}
 
 	@Override

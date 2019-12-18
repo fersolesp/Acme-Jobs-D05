@@ -1,12 +1,17 @@
 
 package acme.features.worker.auditRecord;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.auditRecords.AuditRecord;
+import acme.entities.jobs.Job;
+import acme.entities.jobs.Status;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -25,11 +30,15 @@ public class WorkerAuditRecordListService implements AbstractListService<Worker,
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
 
-		int idWorker = request.getPrincipal().getActiveRoleId();
-		int idJob = request.getModel().getInteger("id");
+		int jobId = request.getModel().getInteger("id");
+		int workerId = request.getPrincipal().getActiveRoleId();
+		int numberApplications = this.repository.findApplicationsOfAJob(jobId, workerId);
 
-		int ar = this.repository.findApplicationsOfAJob(idJob, idWorker);
-		return ar > 0;
+		Job job = this.repository.findOneJobById(jobId);
+		Calendar calendar = new GregorianCalendar();
+		Date minimumDeadLine = calendar.getTime();
+
+		return numberApplications > 0 || job.getStatus() == Status.PUBLISHED && job.getDeadline().after(minimumDeadLine);
 	}
 
 	@Override
