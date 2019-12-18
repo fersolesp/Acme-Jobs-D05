@@ -37,7 +37,7 @@ public class EmployerApplicationUpdateService implements AbstractUpdateService<E
 		job = application.getJob();
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId() && application.getStatus().equals(ApplicationStatus.PENDING);
 
 		return result;
 	}
