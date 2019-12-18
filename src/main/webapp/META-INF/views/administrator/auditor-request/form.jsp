@@ -5,7 +5,7 @@
 
 <acme:form>
 	<acme:form-textbox code="administrator.auditor-request.form.label.firm" path="firm" readonly="true"/>
-	<acme:form-textbox code="administrator.auditor-request.form.label.responsabilityStatement" path="responsabilityStatement" readonly="true"/>
+	<acme:form-textarea code="administrator.auditor-request.form.label.responsabilityStatement" path="responsabilityStatement" readonly="true"/>
 	<acme:form-select code="administrator.auditor-request.form.label.status" path="status">
         <acme:form-option code="administrator.auditor-request.form.label.status.pending" value="PENDING" selected="${status == 'PENDING'}"/>
         <acme:form-option code="administrator.auditor-request.form.label.status.accepted" value="ACCEPTED" selected="${status == 'ACCEPTED'}"/>

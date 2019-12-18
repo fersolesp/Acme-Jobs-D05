@@ -3,6 +3,7 @@ package acme.entities.solaBulletins;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +29,7 @@ public class SolaBulletin extends DomainEntity {
 	private String				cybernaut;
 
 	@NotBlank
+	@Column(length = 1024)
 	private String				contribution;
 
 	@Temporal(TemporalType.TIMESTAMP)
