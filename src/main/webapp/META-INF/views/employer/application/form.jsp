@@ -20,10 +20,12 @@
 	<jstl:if test="${command == 'show'}">
 	<acme:form-textarea code="employer.application.form.label.justification" path="justification" readonly="${status != 'PENDING'}"/>
 	</jstl:if>
+	<jstl:if test="${command != 'update'}">
 	<button type="button" onclick="javascript: clearReturnUrl(); redirect('/employer/job/show?id=${job.id}')"
 		class="btn btn-default">
 		<acme:message code="employer.application.form.label.jobOf" />
 	</button>
+	</jstl:if>
 	
 	<acme:form-submit test="${command == 'show' && status == 'PENDING'}" code="employer.application.form.button.update" action="update"/>
 	<acme:form-submit test="${command == 'update'}" code="employer.application.form.button.update" action="update"/>
