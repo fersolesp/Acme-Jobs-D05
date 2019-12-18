@@ -6,7 +6,9 @@
 <acme:form readonly="${status=='PUBLISHED'}">
 	<acme:form-textbox code="auditor.auditRecord.form.label.title" path="title"/>
 	
-	<acme:form-hidden path="job.id"/>
+	<jstl:if test="${command == 'create'}">
+		<acme:form-hidden path="job.id"/>
+	</jstl:if>
 
 	
 	<jstl:if test="${command != 'create'}">

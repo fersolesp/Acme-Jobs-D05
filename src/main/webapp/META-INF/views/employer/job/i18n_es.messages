@@ -23,6 +23,8 @@ employer.job.form.panel.descriptor= Descriptor
 employer.job.form.label.description= Descripción:
 employer.job.form.label.descriptorMessage= Obligaciones
 employer.job.form.label.auditRecords= Registros de Auditoría
+employer.job.form.label.cantDelete = No puedes borrar este trabajo porque tiene solicitudes hechas a él
+
 
 employer.job.error.spam= Contiene demasiadas palabras de spam.
 employer.job.error.label.unique= La referencia introducida ya esta en uso.

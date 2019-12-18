@@ -1,8 +1,11 @@
 
 package acme.entities.auditorRequests;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -15,6 +18,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "status")
+})
 public class AuditorRequest extends DomainEntity {
 	// Serialization identifier -----------------------------------------------
 
@@ -26,6 +32,7 @@ public class AuditorRequest extends DomainEntity {
 	private String					firm;
 
 	@NotBlank
+	@Column(length = 1024)
 	private String					responsabilityStatement;
 
 	@NotNull

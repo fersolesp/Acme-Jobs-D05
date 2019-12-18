@@ -55,7 +55,7 @@ public class AuditorAuditRecordUpdateService implements AbstractUpdateService<Au
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "body", "job.id", "auditor", "status");
+		request.unbind(entity, model, "title", "body", "status");
 	}
 
 	@Override

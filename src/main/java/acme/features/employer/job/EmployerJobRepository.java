@@ -32,6 +32,9 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select a from Application a where a.job.id=?1")
 	Collection<Application> findApplicationsByJobId(int jobId);
 
+	@Query("select count(a) from Application a where a.job.id=?1")
+	int findNumberOfApplicationsByJobId(int jobId);
+
 	@Query("select au from AuditRecord au where au.job.id=?1")
 	Collection<AuditRecord> findAuditRecordsByJobId(int jobId);
 

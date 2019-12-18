@@ -1,6 +1,7 @@
 
 package acme.entities.investorRecords;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
@@ -33,6 +34,7 @@ public class InvestorRecords extends DomainEntity {
 	private String				workSector;
 
 	@NotBlank
+	@Column(length = 1024)
 	private String				investingStatement;
 
 	@Range(min = 0, max = 5)
